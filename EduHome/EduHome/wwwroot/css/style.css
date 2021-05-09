@@ -1432,6 +1432,7 @@ textarea {
     display: inline-block;
     position: relative;
 }
+
 .course-title h3::after {
     background: #fff none repeat scroll 0 0;
     content: "";

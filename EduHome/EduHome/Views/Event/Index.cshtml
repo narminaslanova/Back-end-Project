@@ -1,0 +1,85 @@
+﻿@model List<Event>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>event</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+
+
+<!-- Event Start -->
+<div class="event-area three text-center pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="course-title" style="margin-left: -76%;">
+                    <h3>search event</h3>
+                </div>
+                <div class="course-form">
+                    <form id="search" action="#">
+                        <input type="search" placeholder="Search..." name="search" />
+                        <button type="submit">search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (Event ev in Model)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-event mb-60">
+                        <div class="event-img">
+                            <a href="event-details.html">
+                                <img src="img/event/@ev.ImageURL" alt="event">
+                                <div class="course-hover">
+                                    <i class="fa fa-link"></i>
+                                </div>
+                            </a>
+                            <div class="event-date">
+                                <h3>@Html.Raw(ev.Date)</h3>
+                            </div>
+                        </div>
+                        <div class="event-content text-left">
+                            <h4><a href="event-details.html">@ev.Title</a></h4>
+                            <ul>
+                                <li><span>time:</span>@ev.Time</li>
+                                <li><span>venue</span>@ev.Venue</li>
+                            </ul>
+                            <div class="event-content-right">
+                                <a class="default-btn" href="event-details.html">join now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+<!-- Event End -->
+
+
+<!-- Subscribe Start -->
+<div class="subscribe-area pt-60 pb-70">
+    <div class="container">
+        <div class="row">
+           @await Component.InvokeAsync("Subscribe") 
+        </div>
+    </div>
+</div>
+<!-- Subscribe End -->

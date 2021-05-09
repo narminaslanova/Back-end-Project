@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>our teachers</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+
+
+<!-- Teacher Start -->
+<div class="teacher-area pt-150 pb-105">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="course-title">
+                    <h3>search teacher</h3>
+                </div>
+                <div class="course-form">
+                    <form id="search" action="#">
+                        <input type="search" placeholder="Search..." name="search" />
+                        <button type="submit">search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @await Component.InvokeAsync("Teacher", 12)
+        </div>
+    </div>
+</div>
+<!-- Teacher End -->
+
+
+<!-- Subscribe Start -->
+<div class="subscribe-area pt-60 pb-70">
+    <div class="container">
+        <div class="row">
+           @await Component.InvokeAsync("Subscribe") 
+        </div>
+    </div>
+</div>
+<!-- Subscribe End -->

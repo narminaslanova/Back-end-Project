@@ -1,0 +1,15 @@
+﻿@model AboutInfo
+
+<div class="col-md-6 col-sm-6">
+    <div class="about-content">
+        <h2>@Html.Raw(Model.Title)</h2>
+        <p>@Model.Description</p>
+        <p class="hidden-sm">@Model.Description</p>
+        <a class="default-btn" href="about.html">view courses</a>
+    </div>
+</div>
+<div class="col-md-6 col-sm-6">
+    <div class="about-img">
+        <img src="~/img/about/@Model.ImageURL" alt="about">
+    </div>
+</div>

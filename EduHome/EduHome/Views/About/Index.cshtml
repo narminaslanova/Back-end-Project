@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>about us</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+
+
+<!-- About Start -->
+<div class="about-area pt-145 pb-155">
+    <div class="container">
+        <div class="row">
+            @await Component.InvokeAsync("AboutInfo") 
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+<!-- Teacher Start -->
+<div class="teacher-area pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title text-center">
+                    <img src="img/icon/section.png" alt="title">
+                    <h2>meet our teachers</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+           @await Component.InvokeAsync("Teacher", 4) 
+        </div>
+    </div>
+</div>
+<!-- Teacher End -->
+
+
+<!-- Testimonial Area Start -->
+<div class="testimonial-area pt-110 pb-105 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="testimonial-owl owl-theme owl-carousel">
+                @await Component.InvokeAsync("Testimonials")
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial Area End -->
+
+
+<!-- Notice Start -->
+<section class="notice-area two pt-140 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="notice-right-wrapper mb-25 pb-25">
+                    <h3>TAKE A VIDEO TOUR</h3>
+                    <div class="notice-video">
+                        <div class="video-icon video-hover">
+                            <a class="video-popup" href="https://www.youtube.com/watch?v=to6Ghf8UL7o">
+                                <i class="zmdi zmdi-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @await Component.InvokeAsync("NoticeBoard", 9)
+        </div>
+    </div>
+</section>
+<!-- Notice End -->
+
+
+<!-- Subscribe Start -->
+<div class="subscribe-area pt-58 pb-70">
+    <div class="container">
+        <div class="row">
+            @await Component.InvokeAsync("Subscribe")
+        </div>
+    </div>
+</div>
+<!-- Subscribe End -->

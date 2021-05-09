@@ -20,12 +20,9 @@ namespace EduHome.Controllers
             HomeVM homeVM = new HomeVM
             {
                 Sliders=_context.Sliders.ToList(),
-                Courses=_context.Courses.Take(3).ToList(),
-                NoticeBoards=_context.NoticeBoards.OrderByDescending(n=>n.Date).ToList(),
                 InfoCards= _context.InfoCards.Take(3).ToList(),
-                AboutInfo=_context.AboutInfos.FirstOrDefault(),
-                Events=_context.Events.Take(4).ToList(),
-                Testimonials=_context.Testimonials.ToList()
+                Events=_context.Events.Take(4).ToList()
+                
             };
             return View(homeVM);
         }

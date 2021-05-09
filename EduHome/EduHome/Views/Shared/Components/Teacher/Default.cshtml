@@ -1,0 +1,24 @@
+﻿@model List<Teacher>
+
+
+@foreach (Teacher teacher in Model)
+{
+    <div class="col-md-3 col-sm-4 col-xs-12">
+        <div class="single-teacher mb-45">
+            <div class="single-teacher-img">
+                <a href="teacher-details.html"><img src="img/teacher/@teacher.ImageURL" alt="teacher"></a>
+            </div>
+            <div class="single-teacher-content text-center">
+                <h2><a href="teacher-details.html">@teacher.FullName</a></h2>
+                <h4>@teacher.Profession</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com/devitems/?ref=bookmarks"><i class="zmdi zmdi-facebook"></i></a></li>
+                    <li><a href="https://www.pinterest.com/devitemsllc/"><i class="zmdi zmdi-pinterest"></i></a></li>
+                    <li><a href="#"><i class="zmdi zmdi-vimeo"></i></a></li>
+                    <li><a href="https://twitter.com/devitemsllc"><i class="zmdi zmdi-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+}

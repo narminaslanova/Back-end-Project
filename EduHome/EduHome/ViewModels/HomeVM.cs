@@ -15,5 +15,6 @@ namespace EduHome.ViewModels
         public AboutInfo AboutInfo { get; set; }
         public List<Event> Events { get; set; }
         public List<Testimonials> Testimonials { get; set; }
+        public List<Blog> Blogs { get; set; }
     }
 }

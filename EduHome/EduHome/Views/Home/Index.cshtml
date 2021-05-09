@@ -5,9 +5,8 @@
 }
 
 <!-- Background Area Start -->
-<section id="slider-container" class="slider-area two">
+ <section id="slider-container" class="slider-area two">
     <div class="slider-owl owl-theme owl-carousel">
-
         @foreach (Slider slider in Model.Sliders)
         {
             <!-- Start Slingle Slide -->
@@ -61,19 +60,7 @@
 <div class="about-area pb-155">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-6">
-                <div class="about-content">
-                    <h2>@Html.Raw(Model.AboutInfo.Title)</h2>
-                    <p>@Model.AboutInfo.Description</p>
-                    <p class="hidden-sm">@Model.AboutInfo.Description</p>
-                    <a class="default-btn" href="about.html">view courses</a>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="about-img">
-                    <img src="~/img/about/@Model.AboutInfo.ImageURL" alt="about">
-                </div>
-            </div>
+          @await Component.InvokeAsync("AboutInfo") 
         </div>
     </div>
 </div>
@@ -115,20 +102,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="notice-left-wrapper">
-                    <h3>notice board</h3>
-                    <div class="notice-left">
-                        @foreach (NoticeBoard nb in Model.NoticeBoards)
-                        {
-                            <div class="single-notice-left mb-23 pb-20">
-                                <h4>@nb.Date</h4>
-                                <p>@nb.Description</p>
-                            </div>
-                        }
-                    </div>
-                </div>
-            </div>
+            @await Component.InvokeAsync("NoticeBoard", 9)
         </div>
     </div>
 </section>
@@ -210,11 +184,7 @@
     <div class="container">
         <div class="row">
             <div class="testimonial-owl owl-theme owl-carousel">
-                <div class="col-md-8 col-md-offset-2 col-sm-12">
-
-                  @await Component.InvokeAsync("Testimonials") 
-
-                </div>
+                @await Component.InvokeAsync("Testimonials")
             </div>
         </div>
     </div>
@@ -234,63 +204,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-blog">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="~/img/blog/blog1.jpg" alt="blog"></a>
-                        <div class="blog-hover">
-                            <a href="blog-details.html"><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-top">
-                            <p>By Alex  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>
-                        </div>
-                        <div class="blog-bottom">
-                            <h2><a href="blog-details.html">I must explain to you how all this a mistaken idea </a></h2>
-                            <a href="blog-details.html">read more</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-blog">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="~/img/blog/blog2.jpg" alt="blog"></a>
-                        <div class="blog-hover">
-                            <a href="blog-details.html"><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-top">
-                            <p>By Alex  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>
-                        </div>
-                        <div class="blog-bottom">
-                            <h2><a href="blog-details.html">I must explain to you how all this a mistaken idea </a></h2>
-                            <a href="blog-details.html">read more</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 hidden-sm col-xs-12">
-                <div class="single-blog">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="~/img/blog/blog3.jpg" alt="blog"></a>
-                        <div class="blog-hover">
-                            <a href="blog-details.html"><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-top">
-                            <p>By Alex  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>
-                        </div>
-                        <div class="blog-bottom">
-                            <h2><a href="blog-details.html">I must explain to you how all this a mistaken idea </a></h2>
-                            <a href="blog-details.html">read more</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @await Component.InvokeAsync("Blog", 3) 
         </div>
     </div>
 </div>
@@ -301,29 +215,7 @@
 <div class="subscribe-area pt-60 pb-70">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="subscribe-content section-title text-center">
-                    <h2>subscribe our newsletter</h2>
-                    <p>I must explain to you how all this mistaken idea </p>
-                </div>
-                <div class="newsletter-form mc_embed_signup">
-                    <form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                        <div id="mc_embed_signup_scroll" class="mc-form">
-                            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your e-mail address" required>
-                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                            <div class="mc-news" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
-                            <button id="mc-embedded-subscribe" class="default-btn" type="submit" name="subscribe"><span>subscribe</span></button>
-                        </div>
-                    </form>
-                    <!-- mailchimp-alerts Start -->
-                    <div class="mailchimp-alerts">
-                        <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-                        <div class="mailchimp-success"></div><!-- mailchimp-success end -->
-                        <div class="mailchimp-error"></div><!-- mailchimp-error end -->
-                    </div>
-                    <!-- mailchimp-alerts end -->
-                </div>
-            </div>
+            @await Component.InvokeAsync("Subscribe") 
         </div>
     </div>
 </div>
