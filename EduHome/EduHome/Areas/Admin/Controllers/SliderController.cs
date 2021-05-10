@@ -22,5 +22,6 @@ namespace EduHome.Areas.Admin.Controllers
             List<Slider> sliders = _context.Sliders.ToList();
             return View(sliders);
         }
+
     }
 }
