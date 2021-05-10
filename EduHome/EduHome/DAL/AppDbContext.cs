@@ -16,10 +16,12 @@ namespace EduHome.DAL
         public DbSet<InfoCard> InfoCards { get; set; }
         public DbSet<AboutInfo> AboutInfos { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<EventDetails> EventDetails { get; set; }
         public DbSet<Testimonials> Testimonials { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Bio>  Bios { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }
+
     }
 }
