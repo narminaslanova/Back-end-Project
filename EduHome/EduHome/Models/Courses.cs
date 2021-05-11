@@ -11,7 +11,8 @@ namespace EduHome.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string ImageURL { get; set; }
-
+        public bool IsDeleted { get; set; }
+        public CoursesDetails CoursesDetails { get; set; }
 
     }
 }

@@ -1,0 +1,30 @@
+﻿@model Slider 
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <img src="~/img/slider/@Model.ImageURL" width="300" alt="Alternate Text" />
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.Title</td>
+                        <td>@Model.Description</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a asp-action="Index" class="my-3 btn btn-secondary">Go Back</a>
+        </div>
+</div>
+
+
+

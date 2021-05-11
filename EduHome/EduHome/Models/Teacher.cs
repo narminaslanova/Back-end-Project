@@ -11,14 +11,12 @@ namespace EduHome.Models
         public string FullName { get; set; }
         public string Profession { get; set; }
         public string ImageURL { get; set; }
-        public string Description { get; set; }
-        public string Degree { get; set; }
-        public string Experience { get; set; }
-        public string Hobbies { get; set; }
-        public string Faculty { get; set; }
+        public bool IsDeleted { get; set; }
+        public TeacherDetails TeacherDetails { get; set; }
+        public virtual ICollection<SocialMedia> SocialMedias { get; set; }
 
-        //skils
-        //contactinfo(mail, number, socials)
         
+        
+
     }
 }

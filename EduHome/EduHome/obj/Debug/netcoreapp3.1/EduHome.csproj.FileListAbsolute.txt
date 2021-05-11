@@ -315,3 +315,8 @@ C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\R
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Dashboard\Index.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Slider\Index.cshtml.g.cs
+C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Slider\Detail.cshtml.g.cs
+C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_ValidationPartial.cshtml.g.cs
+C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\TeacherDetails\Index.cshtml.g.cs
+C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Teachers\Details.cshtml.g.cs
+C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Courses\Details.cshtml.g.cs

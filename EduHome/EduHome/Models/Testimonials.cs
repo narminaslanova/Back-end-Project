@@ -12,6 +12,7 @@ namespace EduHome.Models
         public string ImageURL { get; set; }
         public string FullName { get; set; }
         public string Position { get; set; }
+        public bool IsDeleted { get; set; }
 
     }
 }

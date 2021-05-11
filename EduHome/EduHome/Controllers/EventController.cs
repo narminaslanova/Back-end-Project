@@ -17,8 +17,12 @@ namespace EduHome.Controllers
         }
         public IActionResult Index()
         {
-            List<Event> events = _context.Events.Take(9).OrderByDescending(e=>e.Id).ToList();
+            List<Event> events = _context.Events.Take(9).ToList();
             return View(events);
+        }
+        public IActionResult Detail()
+        {
+            return View();
         }
     }
 }

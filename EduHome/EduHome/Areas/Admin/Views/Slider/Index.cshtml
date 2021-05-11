@@ -10,9 +10,6 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Sliders</h4>
-                <p class="card-description">
-                    Add class <code>.table-bordered</code>
-                </p>
                 <div class="table-responsive pt-3">
                     <table class="table table-bordered">
                         <thead>
@@ -30,16 +27,19 @@
                             {
                                 foreach (Slider slide in Model)
                                 {
-                                    <tr>
-                                        <td>
-                                            <img src="~/img/@slide.ImageURL" style="width:100px;height:100px;object-fit: cover;" alt="Alternate Text" />
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-secondary" asp-action="Detail" asp-route-id="@slide.Id">Detail</a>
-                                            <a class="btn btn-info" asp-action="Update" asp-route-id="@slide.Id">Update</a>
-                                            <a class="btn btn-danger disabled" asp-action="Delete" asp-route-id="@slide.Id">Delete</a>
-                                        </td>
-                                    </tr>
+                                    
+                                        <tr>
+                                            <td>
+                                                <img src="~/img/@slide.ImageURL" style="width:100px;height:100px;object-fit: cover;" alt="Alternate Text" />
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-secondary" asp-action="Detail" asp-route-id="@slide.Id">Detail</a>
+                                                <a class="btn btn-info" asp-action="Update" asp-route-id="@slide.Id">Update</a>
+                                                <a class="btn btn-danger disabled" asp-action="Delete" asp-route-id="@slide.Id">Delete</a>
+                                            </td>
+                                        </tr>
+                                    
+
                                 }
                             }
                             else
@@ -51,9 +51,9 @@
                                             <img src="~/img/slider/@slide.ImageURL" style="width:100px;height:100px;object-fit: cover;" alt="Alternate Text" />
                                         </td>
                                         <td>
-                                            <a class="btn btn-secondary" asp-action="Detail" asp-route-id="@slide.Id">Detail</a>
-                                            <a class="btn btn-info" asp-action="Update" asp-route-id="@slide.Id">Update</a>
-                                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@slide.Id">Delete</a>
+                                            <a class="btn btn-secondary" asp-action="Detail" asp-route-id="@slide.Id"><i class="mdi mdi-information-outline"></i></a>
+                                            <a class="btn btn-info" asp-action="Update" asp-route-id="@slide.Id"><i class="mdi mdi-pencil"></i></a>
+                                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@slide.Id"><i class="mdi mdi-delete"></i></a>
                                         </td>
                                     </tr>
                                 }

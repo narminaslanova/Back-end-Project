@@ -13,6 +13,7 @@ namespace EduHome.Models
         public string Time { get; set; }
         public string City { get; set; }
         public string ImageURL { get; set; }
+        public bool IsDeleted { get; set; }
         public EventDetails EventDetails { get; set; }
 
     }

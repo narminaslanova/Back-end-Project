@@ -23,5 +23,31 @@ namespace EduHome.Areas.Admin.Controllers
             return View(sliders);
         }
 
+        public async Task<IActionResult> Detail(int? id)
+        {
+            if (id == null) return NotFound();
+            Slider slider = await _context.Sliders.FindAsync(id);
+            if (slider == null) return NotFound();
+            return View(slider);
+        }
+
+        
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+            Slider slider = await _context.Sliders.FindAsync(id);
+            if (slider == null) return NotFound();
+            if (slider.IsDeleted==false)
+            {
+                slider.IsDeleted =true;
+            }
+            else
+            {
+                slider.IsDeleted = false;
+            }
+            _context.Sliders.Update(slider);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
