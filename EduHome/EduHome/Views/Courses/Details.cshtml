@@ -33,15 +33,15 @@
                     </div>
                     <div class="course-details-content">
                         <h2>@Model.Name</h2>
-                        <p>@Model.CoursesDetails.MainDescription</p>
+                        <p>@Html.Raw(Model.CoursesDetails.MainDescription)</p>
                         <div class="course-details-left">
                             <div class="single-course-left">
                                 <h3>about course</h3>
-                                <p>@Model.CoursesDetails.AboutCourse</p>
+                                <p>@Html.Raw(Model.CoursesDetails.AboutCourse)</p>
                             </div>
                             <div class="single-course-left">
                                 <h3>how to apply</h3>
-                                <p>@Model.CoursesDetails.HowToApply</p>
+                                <p>@Html.Raw(Model.CoursesDetails.HowToApply)</p>
                             </div>
                             <div class="single-course-left">
                                 <h3>certification</h3>

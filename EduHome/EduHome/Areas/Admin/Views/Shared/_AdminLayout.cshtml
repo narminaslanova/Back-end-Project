@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="~/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
+    @RenderSection("Css", false)
     <link rel="stylesheet" href="~/admin/css/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="~/admin/images/favicon.png" />
@@ -181,7 +182,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="~/admin/pages/tables/basic-table.html">
+                        <a class="nav-link" asp-controller="Courses" asp-action="Index">
                             <i class="mdi mdi-library menu-icon"></i>
                             <span class="menu-title">Courses</span>
                         </a>
@@ -214,10 +215,10 @@
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/login.html">Users List</a></li>
                                 @*<li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/login.html"> Login </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/login-2.html"> Login 2 </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/register.html"> Register </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/register-2.html"> Register 2 </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/lock-screen.html"> Lockscreen </a></li>*@
+                                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/login-2.html"> Login 2 </a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/register.html"> Register </a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/register-2.html"> Register 2 </a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/lock-screen.html"> Lockscreen </a></li>*@
                             </ul>
                         </div>
                     </li>
@@ -258,6 +259,7 @@
     <script src="~/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
     <!-- End plugin js for this page-->
     <!-- inject:js -->
+    @RenderSection("Script",false)
     <script src="~/admin/js/off-canvas.js"></script>
     <script src="~/admin/js/hoverable-collapse.js"></script>
     <script src="~/admin/js/template.js"></script>

@@ -1,0 +1,57 @@
+﻿@model Courses
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <img src="~/img/course/@Model.ImageURL" width="300" alt="Alternate Text" />
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Main Description</th>
+                        <th>About Course</th>
+                        <th>How To Apply</th>
+                        <th>Certification</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width:30%">@Html.Raw(Model.CoursesDetails.MainDescription)</td>
+                        <td>@Html.Raw(Model.CoursesDetails.AboutCourse)</td>
+                        <td>@Html.Raw(Model.CoursesDetails.HowToApply)</td>
+                        <td>@Html.Raw(Model.CoursesDetails.Certification)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="ml-3">Features</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Starting Date</th>
+                        <th>Duration(month)</th>
+                        <th>Class Duration</th>
+                        <th>Skill Level</th>
+                        <th>Language</th>
+                        <th>Student Count</th>
+                        <th>Assesments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.CoursesDetails.CourseFeatures.StartTime</td>
+                        <td>@Model.CoursesDetails.CourseFeatures.Duration</td>
+                        <td>@Model.CoursesDetails.CourseFeatures.ClassDuration</td>
+                        <td>@Model.CoursesDetails.CourseFeatures.SkillLevel</td>
+                        <td>@Model.CoursesDetails.CourseFeatures.Language</td>
+                        <td>@Model.CoursesDetails.CourseFeatures.StudentCount</td>
+                        <td>@Model.CoursesDetails.CourseFeatures.Assesment</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a asp-action="Index" class="ml-3 btn btn-secondary">Go Back</a>
+    </div>
+</div>
+

@@ -12,7 +12,7 @@ namespace EduHome.Models
         public string Author { get; set; }
         public string Date { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
         public bool IsDeleted { get; set; }
+        public BlogDetails BlogDetails { get; set; }
     }
 }

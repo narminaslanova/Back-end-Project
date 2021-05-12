@@ -1,6 +1,8 @@
 ﻿using EduHome.DAL;
 using EduHome.Models;
+using EduHome.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +19,18 @@ namespace EduHome.Controllers
         }
         public IActionResult Index()
         {
-            List<Event> events = _context.Events.Take(9).ToList();
+
+            List<Event> events = _context.Events.OrderByDescending(e=>e.Id).Take(9).ToList();
             return View(events);
         }
-        public IActionResult Detail()
+
+        public async Task<IActionResult> Details(int? id)
         {
-            return View();
+            if (id == null) return NotFound();
+            Event eventt = await _context.Events.Include(e => e.EventDetails).Include(e => e.SpeakerEvents).ThenInclude(e => e.Speaker).FirstOrDefaultAsync(e => e.Id == id);
+            if (eventt == null) return NotFound();
+            
+            return View(eventt);
         }
     }
 }

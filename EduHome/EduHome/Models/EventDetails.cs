@@ -11,7 +11,6 @@ namespace EduHome.Models
         public int Id { get; set; }
         public string Description { get; set; }
         public string Venue { get; set; }
-        public string Speaker { get; set; }
         public int EventId { get; set; }
         public Event Event { get; set; }
     }

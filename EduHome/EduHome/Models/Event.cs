@@ -15,6 +15,7 @@ namespace EduHome.Models
         public string ImageURL { get; set; }
         public bool IsDeleted { get; set; }
         public EventDetails EventDetails { get; set; }
+        public List<SpeakerEvent> SpeakerEvents { get; set; }
 
     }
 }
