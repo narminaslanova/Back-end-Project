@@ -315,7 +315,6 @@ C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\R
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Dashboard\Index.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Slider\Index.cshtml.g.cs
-C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Slider\Detail.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_ValidationPartial.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Teachers\Details.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Courses\Details.cshtml.g.cs
@@ -324,4 +323,7 @@ C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\R
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Slider\Create.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Slider\Update.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Courses\Index.cshtml.g.cs
-C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Courses\Detail.cshtml.g.cs
+C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Courses\Create.cshtml.g.cs
+C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Courses\Details.cshtml.g.cs
+C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Slider\Details.cshtml.g.cs
+C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Courses\Update.cshtml.g.cs

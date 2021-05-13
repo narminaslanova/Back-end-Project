@@ -1,6 +1,6 @@
 ﻿@model Courses
 @{
-    ViewData["Title"] = "Detail";
+    ViewData["Title"] = "Details";
 }
 
 <div class="row">
@@ -36,6 +36,7 @@
                         <th>Language</th>
                         <th>Student Count</th>
                         <th>Assesments</th>
+                        <th>Fee($)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,6 +48,7 @@
                         <td>@Model.CoursesDetails.CourseFeatures.Language</td>
                         <td>@Model.CoursesDetails.CourseFeatures.StudentCount</td>
                         <td>@Model.CoursesDetails.CourseFeatures.Assesment</td>
+                        <td>@Model.CoursesDetails.CourseFeatures.Fee</td>
                     </tr>
                 </tbody>
             </table>

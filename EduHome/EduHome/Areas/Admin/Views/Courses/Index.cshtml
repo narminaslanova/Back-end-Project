@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-lg-12 mb-3">
-        <a asp-action="Create" class="btn btn-success">Create New Slider</a>
+        <a asp-action="Create" class="btn btn-success">Create New Course</a>
     </div>
 </div>
 <div class="row">
@@ -47,7 +47,7 @@
                                             @course.Description
                                         </td>
                                         <td>
-                                            <a class="btn btn-secondary" asp-action="Detail" asp-route-id="@course.Id"><i class="mdi mdi-information-outline"></i></a>
+                                            <a class="btn btn-secondary" asp-action="Details" asp-route-id="@course.Id"><i class="mdi mdi-information-outline"></i></a>
                                             <a class="btn btn-info" asp-action="Update" asp-route-id="@course.Id"><i class="mdi mdi-pencil"></i></a>
                                             <a class="btn btn-danger" asp-action="Delete" asp-route-id="@course.Id"><i class="mdi mdi-delete"></i></a>
                                         </td>

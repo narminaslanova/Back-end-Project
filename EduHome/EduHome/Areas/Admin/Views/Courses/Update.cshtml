@@ -1,0 +1,146 @@
+﻿@model CoursesVM
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Course</h4>
+                <form class="forms-sample" asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Course.Photo">Photo</label>
+                        <input asp-for="Course.Photo" accept="image/*" class="form-control">
+                        <span class="text-danger" asp-validation-for="Course.Photo"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Course.Name">Name</label>
+                        <input asp-for="Course.Name" class="form-control">
+                        <span class="text-danger" asp-validation-for="Course.Name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Course.Description">Description</label>
+                        <textarea asp-for="Course.Description" id="editor" class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="Course.Description"></span>
+                    </div>
+                    <h2>Details</h2>
+                    <div class="form-group">
+                        <label asp-for="CoursesDetails.MainDescription">Main Description</label>
+                        <textarea asp-for="CoursesDetails.MainDescription" id="editor1" class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="CoursesDetails.MainDescription"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CoursesDetails.AboutCourse">About Course</label>
+                        <textarea asp-for="CoursesDetails.AboutCourse" id="editor2" class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="CoursesDetails.AboutCourse"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CoursesDetails.HowToApply">How To Apply</label>
+                        <textarea asp-for="CoursesDetails.HowToApply" id="editor3" class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="CoursesDetails.HowToApply"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CoursesDetails.Certification">Certification</label>
+                        <textarea asp-for="CoursesDetails.Certification" id="editor4" class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="CoursesDetails.Certification"></span>
+                    </div>
+
+
+                    <h2>Features</h2>
+                    <div class="form-group">
+                        <label asp-for="CourseFeatures.StartTime">Start Time</label>
+                        <input asp-for="CourseFeatures.StartTime" class="form-control">
+                        <span class="text-danger" asp-validation-for="CourseFeatures.StartTime"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFeatures.Duration">Duration(month)</label>
+                        <input asp-for="CourseFeatures.Duration" class="form-control">
+                        <span class="text-danger" asp-validation-for="CourseFeatures.Duration"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFeatures.ClassDuration">Class Duration</label>
+                        <input asp-for="CourseFeatures.ClassDuration" class="form-control">
+                        <span class="text-danger" asp-validation-for="CourseFeatures.ClassDuration"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFeatures.SkillLevel">Skill Level</label>
+                        <input asp-for="CourseFeatures.SkillLevel" class="form-control">
+                        <span class="text-danger" asp-validation-for="CourseFeatures.SkillLevel"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFeatures.Language">Language</label>
+                        <input asp-for="CourseFeatures.Language" class="form-control">
+                        <span class="text-danger" asp-validation-for="CoursesDetails.CourseFeatures.Language"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFeatures.StudentCount">StudentCount</label>
+                        <input asp-for="CourseFeatures.StudentCount" class="form-control">
+                        <span class="text-danger" asp-validation-for="CourseFeatures.StudentCount"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFeatures.Assesment">Assesments</label>
+                        <input asp-for="CourseFeatures.Assesment" class="form-control">
+                        <span class="text-danger" asp-validation-for="CourseFeatures.Assesment"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFeatures.Fee">Fee</label>
+                        <input asp-for="CourseFeatures.Fee" class="form-control">
+                        <span class="text-danger" asp-validation-for="CourseFeatures.Fee"></span>
+                    </div>
+
+
+
+
+
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a class="btn btn-light" asp-action="Index">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Script
+{
+    <partial name="_ValidationPartial" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+    <script>
+            ClassicEditor
+                .create(document.querySelector('#editor'))
+                .catch(error => {
+                    console.error(error);
+                });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor1'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor2'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor3'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor4'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+}
+

@@ -56,6 +56,8 @@ namespace EduHome.Areas.Admin.Controllers
             
             slider.ImageURL = await slider.Photo.SaveFileAsync(_env.WebRootPath, filepath);
             
+
+
             await _context.Sliders.AddAsync(slider);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -86,7 +88,7 @@ namespace EduHome.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        public async Task<IActionResult> Detail(int? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
             Slider slider = await _context.Sliders.FindAsync(id);
