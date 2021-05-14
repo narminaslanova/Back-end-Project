@@ -1,0 +1,67 @@
+﻿@model List<Blog>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-lg-12 mb-3">
+        <a asp-action="Create" class="btn btn-success">Create New Blog</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Blogs</h4>
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Image
+                                </th>
+                                <th>
+                                    Title
+                                </th>
+                                <th>
+                                    Author
+                                </th>
+                                <th>
+                                    Date
+                                </th>
+                                <th>
+                                    Settings
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Blog blog in Model)
+                            {
+                                    <tr>
+                                        <td>
+                                            <img src="~/img/blog/@blog.ImageURL" style="width:100px;height:100px;object-fit: cover;" alt="Alternate Text" />
+                                        </td>
+                                        <td>
+                                            @blog.Title
+                                        </td>
+                                        <td style="width:20%">
+                                            @blog.Author
+                                        </td>
+                                        <td>
+                                            @blog.Date
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-secondary" asp-action="Details" asp-route-id="@blog.Id"><i class="mdi mdi-information-outline"></i></a>
+                                            <a class="btn btn-info" asp-action="Update" asp-route-id="@blog.Id"><i class="mdi mdi-pencil"></i></a>
+                                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@blog.Id"><i class="mdi mdi-delete"></i></a>
+                                        </td>
+                                    </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

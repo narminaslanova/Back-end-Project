@@ -1,0 +1,51 @@
+﻿@model Event
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <img src="~/img/event/@Model.ImageURL" width="300" alt="Alternate Text" />
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Venue</th>
+                        <th>About Event</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width:30%">@Model.EventDetails.Venue</td>
+                        <td>@Html.Raw(Model.EventDetails.Description)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="ml-3">Speakers</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>FullName</th>
+                        <th>Profession</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (SpeakerEvent speaker in Model.SpeakerEvents)
+                    {
+                        <tr>
+                            <td>
+                                <img src="~/img/event/@speaker.Speaker.ImageURL" style="width:50px;height:50px" alt="Alternate Text" />
+                            </td>
+                            <td>@speaker.Speaker.FullName</td>
+                            <td>@speaker.Speaker.Profession</td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+        <a asp-action="Index" class="ml-3 btn btn-secondary">Go Back</a>
+    </div>
+</div>
+

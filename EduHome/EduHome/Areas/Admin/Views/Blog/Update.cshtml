@@ -1,0 +1,59 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Update Blog</h4>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Id">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Photo">Photo</label>
+                        <input asp-for="Photo" accept="image/*" class="form-control">
+                        <span class="text-danger" asp-validation-for="Photo"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Title">Title</label>
+                        <input asp-for="Title" class="form-control">
+                        <span class="text-danger" asp-validation-for="Title"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Author">Author</label>
+                        <input asp-for="Author" class="form-control">
+                        <span class="text-danger" asp-validation-for="Author"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Date">Date</label>
+                        <input asp-for="Date" class="form-control">
+                        <span class="text-danger" asp-validation-for="Date"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="BlogDetails.Description">Description</label>
+                        <textarea asp-for="BlogDetails.Description" id="editor" class="form-control"></textarea>
+                        <span class="text-danger" asp-validation-for="BlogDetails.Description"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a class="btn btn-light" asp-action="Index">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Script
+{
+    <partial name="_ValidationPartial" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+}
+
