@@ -85,13 +85,64 @@ namespace EduHome.Areas.Admin.Controllers
         public async Task<IActionResult> Update(int? id)
         {
             if (id == null) return View();
-            Courses course = await _context.Courses.Include(c => c.CoursesDetails).ThenInclude(c => c.CourseFeatures).FirstOrDefaultAsync(c=>c.Id==id);
+            Courses course = await _context.Courses.Include(c => c.CoursesDetails).ThenInclude(c => c.CourseFeatures).FirstOrDefaultAsync(c => c.Id == id);
             if (course == null) return NotFound();
             CoursesVM coursesVM = new CoursesVM
             {
-                Course = course
+                Course = course,
+                CoursesDetails=course.CoursesDetails,
+                CourseFeatures=course.CoursesDetails.CourseFeatures
             };
             return View(coursesVM);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(int id,[Bind("Course,CoursesDetails,CourseFeatures")] CoursesVM coursesVM)
+        {
+            //if (id == null) return NotFound();
+            Courses oldCourse = await _context.Courses.Include(c => c.CoursesDetails).ThenInclude(c => c.CourseFeatures).FirstOrDefaultAsync(c => c.Id == id);
+
+            if (coursesVM.Course == null || coursesVM.CoursesDetails == null || coursesVM.CourseFeatures == null) return NotFound();
+            if (!ModelState.IsValid) return NotFound();
+            if (!coursesVM.Course.Photo.IsValidType("image/"))
+            {
+                ModelState.AddModelError("", "Please select image type");
+                return View();
+            }
+            if (!coursesVM.Course.Photo.IsValidSize(200))
+            {
+                ModelState.AddModelError("", "Image size should be less than 200kb");
+                return View();
+            }
+            string filepath = Path.Combine("img", "course");
+            oldCourse.ImageURL = await coursesVM.Course.Photo.SaveFileAsync(_env.WebRootPath, filepath);
+
+            Courses course = coursesVM.Course;
+            CoursesDetails coursesDetails = coursesVM.CoursesDetails;
+            CourseFeatures courseFeatures = coursesVM.CourseFeatures;
+
+            //oldCourse.Id = id;
+            //oldCourse.CoursesDetails.Course = course;
+            //oldCourse.CoursesDetails.CourseId = course.Id;
+            //oldCourse.CoursesDetails = coursesDetails;
+            //oldCourse.CoursesDetails.Id = coursesDetails.Id;
+            //oldCourse.CoursesDetails.CourseFeatures = courseFeatures;
+
+            course.Id = id;
+            coursesDetails.CourseId = course.Id;
+            coursesDetails.Id = oldCourse.CoursesDetails.Id;
+            courseFeatures.CourseDetailsId = coursesDetails.Id;
+            courseFeatures.Id = oldCourse.CoursesDetails.CourseFeatures.Id;
+            
+
+            //return Json(oldCourse);
+            _context.Update(course);
+            _context.Update(course.CoursesDetails);
+            _context.Update(course.CoursesDetails.CourseFeatures);
+            //_context.Update(oldCourse);
+            //_context.Courses.Update(course);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
         public async Task<IActionResult> Delete(int? id)
         {

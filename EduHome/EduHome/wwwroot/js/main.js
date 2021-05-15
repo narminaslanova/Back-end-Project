@@ -1,6 +1,18 @@
 (function ($) {
 "use strict";  
-    
+
+
+    $(document).on("change", "#showPassword", function () {
+        let check = $(this).prop("checked")
+
+        let password = document.getElementById("password");
+
+        if (check) {
+            password.type = "text";
+        } else {
+            password.type = "password";
+        }
+    });
 /*------------------------------------
 	Sticky Menu 
 --------------------------------------*/

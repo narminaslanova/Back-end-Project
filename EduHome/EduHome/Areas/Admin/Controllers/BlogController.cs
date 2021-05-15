@@ -58,7 +58,7 @@ namespace EduHome.Areas.Admin.Controllers
                 BlogDetails=blog.BlogDetails
                 
             };
-            //return Json("aa");
+            
 
             BlogDetails blogDetails = new BlogDetails
             {
@@ -67,10 +67,10 @@ namespace EduHome.Areas.Admin.Controllers
                 Blog = blog.BlogDetails.Blog
                 
             };
-            //return Json("aa");
+            
 
             await _context.Blogs.AddAsync(newBlog);
-           // await _context.BlogDetails.AddAsync(blogDetails1);
+           
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -85,7 +85,7 @@ namespace EduHome.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int id, Blog blog)
         {
-            //if (id == null) return NotFound();
+            
             Blog oldBlog =await _context.Blogs.Include(b => b.BlogDetails).FirstOrDefaultAsync(c => c.Id == id);
             if (ModelState["Photo"].ValidationState == ModelValidationState.Invalid) return View();
             if (!blog.Photo.IsValidType("image/"))
@@ -102,7 +102,6 @@ namespace EduHome.Areas.Admin.Controllers
 
             oldBlog.ImageURL = await blog.Photo.SaveFileAsync(_env.WebRootPath, filepath);
 
-            //return Json("aa");
             oldBlog.Id = id;
             oldBlog.Title = blog.Title;
             oldBlog.Author = blog.Author;
@@ -116,7 +115,7 @@ namespace EduHome.Areas.Admin.Controllers
             oldBlog.BlogDetails.Blog = blog.BlogDetails.Blog;
 
             _context.Update(oldBlog);
-            //_context.Update(blogDetails1);
+            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

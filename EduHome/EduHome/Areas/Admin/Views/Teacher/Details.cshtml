@@ -1,0 +1,61 @@
+﻿@model Teacher
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <img src="~/img/teacher/@Model.ImageURL" width="300" alt="Alternate Text" />
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Degree</th>
+                        <th>Experience</th>
+                        <th>Hobbies</th>
+                        <th>Faculty</th>
+                        <th>Mail</th>
+                        <th>Phone number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width:20%">@Html.Raw(Model.TeacherDetails.Description)</td>
+                        <td>@Model.TeacherDetails.Degree</td>
+                        <td>@Model.TeacherDetails.Experience</td>
+                        <td>@Model.TeacherDetails.Hobbies</td>
+                        <td>@Model.TeacherDetails.Faculty</td>
+                        <td>@Model.TeacherDetails.Mail</td>
+                        <td>@Model.TeacherDetails.PhoneNumber</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="ml-3">Skills</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Language</th>
+                        <th>TeamLeader</th>
+                        <th>Development</th>
+                        <th>Design</th>
+                        <th>Innovation</th>
+                        <th>Communication</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.TeacherDetails.Skills.Language</td>
+                        <td>@Model.TeacherDetails.Skills.TeamLeader</td>
+                        <td>@Model.TeacherDetails.Skills.Development</td>
+                        <td>@Model.TeacherDetails.Skills.Design</td>
+                        <td>@Model.TeacherDetails.Skills.Innovation</td>
+                        <td>@Model.TeacherDetails.Skills.Communication</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a asp-action="Index" class="ml-3 btn btn-secondary">Go Back</a>
+    </div>
+</div>
+
