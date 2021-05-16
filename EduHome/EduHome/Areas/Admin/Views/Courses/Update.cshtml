@@ -10,11 +10,16 @@
                 <h4 class="card-title">Update Course</h4>
                 <form class="forms-sample" asp-action="Update" enctype="multipart/form-data">
                     <input type="hidden" asp-for="Course.Id">
+
                     <input type="hidden" asp-for="CoursesDetails.Id">
+
                     <input type="hidden" asp-for="CourseFeatures.Id">
 
+
                     <input type="hidden" asp-for="CourseFeatures.CourseDetailsId">
+
                     <input type="hidden" asp-for="CoursesDetails.CourseId">
+
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label asp-for="Course.Photo">Photo</label>

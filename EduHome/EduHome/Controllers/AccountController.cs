@@ -72,13 +72,13 @@ namespace EduHome.Controllers
         {
             if (!ModelState.IsValid) return View();
             AppUser user = await _userManager.FindByNameAsync(login.Username);
+           
             if (user == null)
             {
-
-               
                 ModelState.AddModelError("", "Username or password is wrong");
                 return View();
             }
+            
             if (user.IsDeleted)
             {
                 ModelState.AddModelError("", "This account has been deactivated");
@@ -91,17 +91,20 @@ namespace EduHome.Controllers
                 ModelState.AddModelError("", "Please try a few minutes later");
                 return View();
             }
+
+           //check this shit 
             if (!signInResult.Succeeded)
             {
+                
                 ModelState.AddModelError("", "Username or password is wrong");
                 return View();
             }
 
             if ((await _userManager.GetRolesAsync(user))[0] == Roles.Admin.ToString())
             {
-                return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
+                return RedirectToAction("index", "dashboard", new { area = "admin" });
             }
-            
+
             return RedirectToAction("Index", "Home");
 
         }

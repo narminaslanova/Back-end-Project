@@ -27,12 +27,7 @@ namespace EduHome.Areas.Admin.Controllers
             List<Teacher> teachers = _context.Teachers.Include(t => t.TeacherDetails).ThenInclude(t => t.Skills).Include(t => t.SocialMedias).ToList();
             return View(teachers);
         }
-        public IActionResult SocialMedia()
-        {
-            
-
-            return View();
-        }
+        
         public IActionResult Details(int? id)
         {
             if (id == null) return NotFound();

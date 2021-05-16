@@ -334,7 +334,6 @@ C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\R
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Create.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Update.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Teacher\Index.cshtml.g.cs
-C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Teacher\SocialMedia.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Teacher\Details.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -343,3 +342,4 @@ C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\bin\Debug\netcoreapp3.1\M
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Users\Index.cshtml.g.cs
