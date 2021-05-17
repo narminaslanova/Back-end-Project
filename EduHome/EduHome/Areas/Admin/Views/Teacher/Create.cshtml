@@ -1,0 +1,112 @@
+﻿@model TeacherVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Teacher</h4>
+                <form class="forms-sample" asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Teacher.Photo">Photo</label>
+                        <input asp-for="Teacher.Photo" accept="image/*" class="form-control">
+                        <span class="text-danger" asp-validation-for="Teacher.Photo"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Teacher.FullName">FullName</label>
+                        <input asp-for="Teacher.FullName" class="form-control">
+                        <span class="text-danger" asp-validation-for="Teacher.FullName"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Teacher.Profession">Profession</label>
+                        <textarea asp-for="Teacher.Profession" id="editor" class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="Teacher.Profession"></span>
+                    </div>
+                    <h2>Details</h2>
+                    <div class="form-group">
+                        <label asp-for="TeacherDetails.Description">Description</label>
+                        <textarea asp-for="TeacherDetails.Description" id="editor" class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="TeacherDetails.Description"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TeacherDetails.Degree">Degree</label>
+                        <textarea asp-for="TeacherDetails.Degree"  class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="TeacherDetails.Degree"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TeacherDetails.Experience">Experience</label>
+                        <textarea asp-for="TeacherDetails.Experience"  class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="TeacherDetails.Experience"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TeacherDetails.Hobbies">Hobbies</label>
+                        <textarea asp-for="TeacherDetails.Hobbies"  class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="TeacherDetails.Hobbies"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TeacherDetails.Faculty">Certification</label>
+                        <textarea asp-for="TeacherDetails.Faculty"  class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="TeacherDetails.Faculty"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TeacherDetails.Mail">Certification</label>
+                        <textarea asp-for="TeacherDetails.Mail"  class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="TeacherDetails.Mail"></span>
+                    </div>
+                    <h2>Features</h2>
+                    @*<div class="form-group">
+                        <label asp-for="CourseFeatures.StartTime">Start Time</label>
+                        <input asp-for="CourseFeatures.StartTime" class="form-control">
+                        <span class="text-danger" asp-validation-for="CourseFeatures.StartTime"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFeatures.Duration">Duration(month)</label>
+                        <input asp-for="CourseFeatures.Duration" class="form-control">
+                        <span class="text-danger" asp-validation-for="CourseFeatures.Duration"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFeatures.ClassDuration">Class Duration</label>
+                        <input asp-for="CourseFeatures.ClassDuration" class="form-control">
+                        <span class="text-danger" asp-validation-for="CourseFeatures.ClassDuration"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFeatures.SkillLevel">Skill Level</label>
+                        <input asp-for="CourseFeatures.SkillLevel" class="form-control">
+                        <span class="text-danger" asp-validation-for="CourseFeatures.SkillLevel"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFeatures.Language">Language</label>
+                        <input asp-for="CourseFeatures.Language" class="form-control">
+                        <span class="text-danger" asp-validation-for="CoursesDetails.CourseFeatures.Language"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFeatures.StudentCount">StudentCount</label>
+                        <input asp-for="CourseFeatures.StudentCount" class="form-control">
+                        <span class="text-danger" asp-validation-for="CourseFeatures.StudentCount"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFeatures.Assesment">Assesments</label>
+                        <input asp-for="CourseFeatures.Assesment" class="form-control">
+                        <span class="text-danger" asp-validation-for="CourseFeatures.Assesment"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFeatures.Fee">Fee</label>
+                        <input asp-for="CourseFeatures.Fee" class="form-control">
+                        <span class="text-dang*@er" asp-validation-for="CourseFeatures.Fee"></span>
+                    @*</div>*@
+
+
+
+
+
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a class="btn btn-light" asp-action="Index">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

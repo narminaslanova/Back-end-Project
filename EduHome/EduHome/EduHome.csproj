@@ -7,6 +7,10 @@
   <ItemGroup>
     <Compile Remove="Migrations\20210514123602_test.cs" />
     <Compile Remove="Migrations\20210514123602_test.Designer.cs" />
+    <Compile Remove="Migrations\20210517143842_AddSMtable.cs" />
+    <Compile Remove="Migrations\20210517143842_AddSMtable.Designer.cs" />
+    <Compile Remove="Migrations\20210517144026_AddSMtable.cs" />
+    <Compile Remove="Migrations\20210517144026_AddSMtable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

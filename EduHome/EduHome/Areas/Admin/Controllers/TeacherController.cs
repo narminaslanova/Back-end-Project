@@ -27,6 +27,28 @@ namespace EduHome.Areas.Admin.Controllers
             List<Teacher> teachers = _context.Teachers.Include(t => t.TeacherDetails).ThenInclude(t => t.Skills).Include(t => t.SocialMedias).ToList();
             return View(teachers);
         }
+
+        public IActionResult Create()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public IActionResult Create([Bind("Teacher,TeacherDetails,Skills,SocialMedias")] TeacherVM teacherVM)
+        {
+            if (teacherVM.Teacher == null || teacherVM.TeacherDetails == null || teacherVM.Skills == null || teacherVM.SocialMedias == null);
+            Teacher teacher = teacherVM.Teacher;
+            TeacherDetails teacherDetails = teacherVM.TeacherDetails;
+            Skills skills = teacherVM.Skills;
+            
+
+
+            return RedirectToAction(nameof(Index));
+
+        }
+        
         
         public IActionResult Details(int? id)
         {

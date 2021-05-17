@@ -1,0 +1,82 @@
+﻿@model EventVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Event</h4>
+                <form class="forms-sample" asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Event.Photo">Photo</label>
+                        <input asp-for="Event.Photo" accept="image/*" class="form-control">
+                        <span class="text-danger" asp-validation-for="Event.Photo"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Event.Title">Title</label>
+                        <input asp-for="Event.Title" class="form-control">
+                        <span class="text-danger" asp-validation-for="Event.Title"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Event.Date">Date</label>
+                        <textarea asp-for="Event.Date" class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="Event.Date"></span>
+                    </div>
+                    <h2>Details</h2>
+                    <div class="form-group">
+                        <label asp-for="Event.Time">Time</label>
+                        <textarea asp-for="Event.Time" class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="Event.Time"></span>
+                    </div>
+                    <h3>Details</h3>
+                    <div class="form-group">
+                        <label asp-for="EventDetails.Description">Description</label>
+                        <textarea asp-for="EventDetails.Description" id="editor" class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="EventDetails.Description"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EventDetails.Venue">Venue</label>
+                        <textarea asp-for="EventDetails.Venue" class="form-control editor"></textarea>
+                        <span class="text-danger" asp-validation-for="EventDetails.Venue"></span>
+                    </div>
+
+                    <h3>Speakers</h3>
+                    <div class="form-group" id="speaker">
+                        <label>Select Speaker</label>
+                        <select class="form-control" multiple name="Speaker">
+                            @foreach (Speaker item in ViewBag.Speakers)
+                            {
+                                <option value="@item.Id">@item.FullName</option>
+                            }
+
+                        </select>
+                    </div>
+
+
+
+
+
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a class="btn btn-light" asp-action="Index">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Script
+{
+    <partial name="_ValidationPartial" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+    <script>
+            ClassicEditor
+                .create(document.querySelector('#editor'))
+                .catch(error => {
+                    console.error(error);
+                });
+    </script>
+
+}

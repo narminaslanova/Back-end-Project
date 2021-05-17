@@ -21,6 +21,7 @@ namespace EduHome.DAL
         public DbSet<Event> Events { get; set; }
         public DbSet<EventDetails> EventDetails { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
+        public DbSet<SpeakerEvent> SpeakerEvent { get; set; }
         public DbSet<Testimonials> Testimonials { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<BlogDetails> BlogDetails { get; set; }
@@ -30,6 +31,7 @@ namespace EduHome.DAL
         public DbSet<Skills> Skills { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
+        public DbSet<SocialMediaTable> SocialMediaTable { get; set; }
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using EduHome.Models;
 using EduHome.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ using static EduHome.Helpers.Helper;
 namespace EduHome.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class UsersController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -50,12 +52,12 @@ namespace EduHome.Areas.Admin.Controllers
 
             string role = (await _userManager.GetRolesAsync(userapp))[0];
             
-            string userName = User.Identity.Name;
+            //string userName = ;
 
            
-            AppUser currentUser = await _userManager.FindByNameAsync(userName);
+            AppUser currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            return Json(currentUser);
+            //return Json(currentUser);
 
             string currentRole = (await _userManager.GetRolesAsync(currentUser))[0];
 

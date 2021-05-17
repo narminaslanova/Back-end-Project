@@ -1,5 +1,6 @@
 ﻿using EduHome.Models;
 using EduHome.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -92,13 +93,13 @@ namespace EduHome.Controllers
                 return View();
             }
 
-           //check this shit 
-            if (!signInResult.Succeeded)
-            {
-                
-                ModelState.AddModelError("", "Username or password is wrong");
-                return View();
-            }
+
+            //if (!signInResult.Succeeded)
+            //{
+
+            //    ModelState.AddModelError("", "Username or password is wrong");
+            //    return View();
+            //}
 
             if ((await _userManager.GetRolesAsync(user))[0] == Roles.Admin.ToString())
             {
