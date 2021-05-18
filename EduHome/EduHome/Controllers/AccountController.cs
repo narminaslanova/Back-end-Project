@@ -94,12 +94,12 @@ namespace EduHome.Controllers
             }
 
 
-            //if (!signInResult.Succeeded)
-            //{
+            if (!signInResult.Succeeded)
+            {
 
-            //    ModelState.AddModelError("", "Username or password is wrong");
-            //    return View();
-            //}
+                ModelState.AddModelError("", "Username or password is wrong");
+                return View();
+            }
 
             if ((await _userManager.GetRolesAsync(user))[0] == Roles.Admin.ToString())
             {

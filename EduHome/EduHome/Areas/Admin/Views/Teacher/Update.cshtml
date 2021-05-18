@@ -1,6 +1,6 @@
 ﻿@model TeacherVM
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Update";
 }
 
 <div class="row">
@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Create Teacher</h4>
-                <form class="forms-sample" asp-action="Create" enctype="multipart/form-data">
+                <form class="forms-sample" asp-action="Update" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label asp-for="Teacher.Photo">Photo</label>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Teacher.Profession">Profession</label>
-                        <textarea asp-for="Teacher.Profession"  class="form-control editor"></textarea>
+                        <textarea asp-for="Teacher.Profession" class="form-control editor"></textarea>
                         <span class="text-danger" asp-validation-for="Teacher.Profession"></span>
                     </div>
                     <h2>Details</h2>

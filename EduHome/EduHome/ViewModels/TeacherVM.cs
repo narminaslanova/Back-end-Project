@@ -11,7 +11,7 @@ namespace EduHome.ViewModels
         public Teacher Teacher { get; set; }
         public TeacherDetails TeacherDetails { get; set; }
         public Skills Skills { get; set; }
-        public List<int> SocialMedias { get; set; }
+        public List<int> SocialMedia { get; set; }
 
     }
 }

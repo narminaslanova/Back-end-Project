@@ -98,7 +98,7 @@ namespace EduHome.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateAsync(int id, [Bind("Event,EventDetails,Speaker")] EventVM eventVM)
+        public async Task<IActionResult> Update(int id, [Bind("Event,EventDetails,Speaker")] EventVM eventVM)
         {
             if (eventVM.Event == null || eventVM.EventDetails == null || eventVM.Speaker == null) return NotFound();
             ViewBag.Speakers = _contex.Speakers.ToList();

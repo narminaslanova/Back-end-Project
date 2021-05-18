@@ -1,4 +1,5 @@
 ﻿using EduHome.DAL;
+using EduHome.Extensions;
 using EduHome.Models;
 using EduHome.ViewModels;
 using Microsoft.AspNetCore.Hosting;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,25 +32,70 @@ namespace EduHome.Areas.Admin.Controllers
 
         public IActionResult Create()
         {
-
+            ViewBag.SocialMedia = _context.SocialMediaTable.ToList();
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public IActionResult Create([Bind("Teacher,TeacherDetails,Skills,SocialMedias")] TeacherVM teacherVM)
+        public async Task<IActionResult> CreateAsync([Bind("Teacher,TeacherDetails,Skills,SocialMedias")] TeacherVM teacherVM)
         {
-            if (teacherVM.Teacher == null || teacherVM.TeacherDetails == null || teacherVM.Skills == null || teacherVM.SocialMedias == null);
+            if (teacherVM.Teacher == null || teacherVM.TeacherDetails == null || teacherVM.Skills == null || teacherVM.SocialMedia == null) return NotFound();
             Teacher teacher = teacherVM.Teacher;
             TeacherDetails teacherDetails = teacherVM.TeacherDetails;
             Skills skills = teacherVM.Skills;
-            
 
+            teacher.TeacherDetails = teacherDetails;
+            teacherDetails.Skills = skills;
+            teacherDetails.TeacherId = teacher.Id;
+            skills.TeacherDetailsId = teacherDetails.Id;
+            skills.TeacherDetails = teacherDetails;
 
+            if (!teacher.Photo.IsValidType("image/"))
+            {
+                ModelState.AddModelError("", "Please select image type");
+                return View();
+            }
+            if (!teacher.Photo.IsValidSize(200))
+            {
+                ModelState.AddModelError("", "Image size should be less than 200kb");
+                return View();
+            }
+            string filepath = Path.Combine("img", "teacher");
+            teacher.ImageURL = await teacher.Photo.SaveFileAsync(_env.WebRootPath, filepath);
+
+            List<SocialMedia> socialMedias = new List<SocialMedia>();
+            List<SocialMediaTable> socials = _context.SocialMediaTable.ToList();
+            foreach (var item in teacherVM.SocialMedia)
+            {
+                SocialMediaTable social = socials.FirstOrDefault(n => n.Id == item);
+                socials.Add(new SocialMediaTable
+                {
+                    Icon = social.Icon,
+
+                });
+            }
+            teacherVM.Teacher.SocialMedias = socialMedias;
+            _context.Teachers.Add(teacher);
+            _context.TeacherDetails.Add(teacherDetails);
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-
         }
         
+        public IActionResult Update(int? id)
+        {
+            if (id == null) return NotFound();
+            Teacher teacher=_context.Teachers.Include(t => t.TeacherDetails).ThenInclude(t => t.Skills).Include(t => t.SocialMedias).FirstOrDefault(t=>t.Id==id);
+            if (teacher == null) return NotFound();
+            ViewBag.SocialMedia = _context.SocialMediaTable.ToList();
+            TeacherVM teacherVM = new TeacherVM
+            {
+                Teacher = teacher,
+                TeacherDetails = teacher.TeacherDetails,
+                Skills = teacher.TeacherDetails.Skills
+            };
+            return View(teacherVM);
+        }
         
         public IActionResult Details(int? id)
         {
