@@ -12,7 +12,7 @@ using static EduHome.Helpers.Helper;
 namespace EduHome.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class UsersController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

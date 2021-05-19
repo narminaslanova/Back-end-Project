@@ -2,6 +2,7 @@
 using EduHome.Extensions;
 using EduHome.Models;
 using EduHome.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,24 +15,25 @@ using System.Threading.Tasks;
 namespace EduHome.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class EventsController : Controller
     {
-        private readonly AppDbContext _contex;
+        private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
         public EventsController(AppDbContext context, IWebHostEnvironment env)
         {
-            _contex = context;
+            _context = context;
             _env = env;
         }
         public async Task<IActionResult> Index()
         {
-            List<Event> eventt = await _contex.Events.Include(e => e.EventDetails).Include(e => e.SpeakerEvents).ThenInclude(e => e.Speaker).ToListAsync();
+            List<Event> eventt = await _context.Events.Include(e => e.EventDetails).Include(e => e.SpeakerEvents).ThenInclude(e => e.Speaker).ToListAsync();
             return View(eventt);
         }
 
         public IActionResult Create()
         {
-            ViewBag.Speakers = _contex.Speakers.ToList();
+            ViewBag.Speakers = _context.Speakers.ToList();
             return View();
         }
         [HttpPost]
@@ -40,7 +42,7 @@ namespace EduHome.Areas.Admin.Controllers
         {
             if (eventVM.Event == null || eventVM.EventDetails == null || eventVM.Speaker == null) return NotFound();
             if (!ModelState.IsValid) return NotFound();
-            ViewBag.Speakers = _contex.Speakers.ToList();
+            ViewBag.Speakers = _context.Speakers.ToList();
             
             if (!eventVM.Event.Photo.IsValidType("image/"))
             {
@@ -69,19 +71,19 @@ namespace EduHome.Areas.Admin.Controllers
             eventVM.Event.SpeakerEvents = speakerEvents;
             eventVM.Event.EventDetails = eventVM.EventDetails;
 
-           await _contex.Events.AddAsync(eventVM.Event);
-           await _contex.EventDetails.AddAsync(eventVM.EventDetails);
-            await _contex.SpeakerEvent.AddRangeAsync(speakerEvents);
-           await _contex.SaveChangesAsync();
+           await _context.Events.AddAsync(eventVM.Event);
+           await _context.EventDetails.AddAsync(eventVM.EventDetails);
+            await _context.SpeakerEvent.AddRangeAsync(speakerEvents);
+           await _context.SaveChangesAsync();
            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Update(int? id)
         {
             if (id == null) return NotFound();
-            Event eventt =  _contex.Events.Include(e => e.EventDetails).Include(e => e.SpeakerEvents).ThenInclude(e => e.Speaker).FirstOrDefault(e=>e.Id==id);
+            Event eventt =  _context.Events.Include(e => e.EventDetails).Include(e => e.SpeakerEvents).ThenInclude(e => e.Speaker).FirstOrDefault(e=>e.Id==id);
             if (eventt == null) return NotFound();
-            ViewBag.Speakers = _contex.Speakers.ToList();
+            ViewBag.Speakers = _context.Speakers.ToList();
             List<int> speakers = new List<int>();
             foreach (SpeakerEvent item in eventt.SpeakerEvents)
             {
@@ -101,7 +103,7 @@ namespace EduHome.Areas.Admin.Controllers
         public async Task<IActionResult> Update(int id, [Bind("Event,EventDetails,Speaker")] EventVM eventVM)
         {
             if (eventVM.Event == null || eventVM.EventDetails == null || eventVM.Speaker == null) return NotFound();
-            ViewBag.Speakers = _contex.Speakers.ToList();
+            ViewBag.Speakers = _context.Speakers.ToList();
             if (!eventVM.Event.Photo.IsValidType("image/"))
             {
                 ModelState.AddModelError("", "Please select image type");
@@ -116,6 +118,7 @@ namespace EduHome.Areas.Admin.Controllers
             List<SpeakerEvent> speakerEvents = new List<SpeakerEvent>();
             foreach (int item in eventVM.Speaker)
             {
+
                 speakerEvents.Add(new SpeakerEvent
                 {
                     EventId = eventVM.Event.Id,
@@ -128,16 +131,16 @@ namespace EduHome.Areas.Admin.Controllers
 
             string filepath = Path.Combine("img", "event");
             eventVM.Event.ImageURL = await eventVM.Event.Photo.SaveFileAsync(_env.WebRootPath, filepath);
-            _contex.Update(eventVM.Event);
-            _contex.Update(eventVM.EventDetails);
-            _contex.UpdateRange(speakerEvents);
-            await _contex.SaveChangesAsync();
+            _context.Update(eventVM.Event);
+            _context.Update(eventVM.EventDetails);
+            _context.UpdateRange(speakerEvents);
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
-            Event event1 = await _contex.Events.Include(e => e.EventDetails).Include(e => e.SpeakerEvents).ThenInclude(e => e.Speaker).FirstOrDefaultAsync(e => e.Id == id);
+            Event event1 = await _context.Events.Include(e => e.EventDetails).Include(e => e.SpeakerEvents).ThenInclude(e => e.Speaker).FirstOrDefaultAsync(e => e.Id == id);
             return View(event1);
         }
 
@@ -145,7 +148,7 @@ namespace EduHome.Areas.Admin.Controllers
         {
             if (id == null) return NotFound();
 
-            Event event1 =  _contex.Events.Include(e => e.EventDetails).Include(e => e.SpeakerEvents).ThenInclude(e => e.Speaker).ToList().Find(e=>e.Id==id);
+            Event event1 =  _context.Events.Include(e => e.EventDetails).Include(e => e.SpeakerEvents).ThenInclude(e => e.Speaker).ToList().Find(e=>e.Id==id);
             
             if (event1 == null) return NotFound();
            
@@ -158,7 +161,7 @@ namespace EduHome.Areas.Admin.Controllers
             {
                 event1.IsDeleted = false;
             }
-            await _contex.SaveChangesAsync();
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
     }

@@ -18,7 +18,6 @@ namespace EduHome.Controllers
         }
         public IActionResult Index()
         {
-            
             return View();
         }
 

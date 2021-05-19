@@ -36,6 +36,7 @@
 
     @await Component.InvokeAsync("Footer")
 
+    @RenderSection("Script", false)
     <script src="~/js/vendor/jquery-1.12.0.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
     <script src="~/js/jquery.meanmenu.js"></script>

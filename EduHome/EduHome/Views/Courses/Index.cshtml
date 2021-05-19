@@ -20,8 +20,6 @@
     </div>
 </div>
 <!-- Banner Area End -->
-
-
 <!-- Course Start -->
 <div class="course-area pt-150 pb-150">
     <div class="container">
@@ -39,19 +37,29 @@
             </div>
         </div>
         <div class="row">
-            @await Component.InvokeAsync("Courses",9) 
+            @await Component.InvokeAsync("Courses", 9)
         </div>
     </div>
 </div>
 <!-- Course End -->
-
-
 <!-- Subscribe Start -->
 <div class="subscribe-area pt-60 pb-70">
     <div class="container">
         <div class="row">
-           @await Component.InvokeAsync("Subscribe") 
+            @await Component.InvokeAsync("Subscribe")
         </div>
     </div>
 </div>
 <!-- Subscribe End -->
+
+@section Script
+{
+    <script>
+        const searchInput = document.getElementById('search');
+
+        searchInput.addEventListener('input', (event) => {
+            console.log(event.target.value);
+        })
+    </script>
+   
+}

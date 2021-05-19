@@ -10,6 +10,16 @@
                 <h4 class="card-title">Create Teacher</h4>
                 <form class="forms-sample" asp-action="Update" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Teacher.Id">
+                    <input type="hidden" asp-for="Teacher.TeacherDetails">
+                    <input type="hidden" asp-for="TeacherDetails.Id">
+                    <input type="hidden" asp-for="TeacherDetails.TeacherId">
+                    <input type="hidden" asp-for="TeacherDetails.Teacher">
+                    <input type="hidden" asp-for="TeacherDetails.Skills">
+                    <input type="hidden" asp-for="TeacherDetails.Skills.Id">
+                    <input type="hidden" asp-for="TeacherDetails.Skills.TeacherDetails">
+                    <input type="hidden" asp-for="TeacherDetails.Skills.TeacherDetailsId">
+                    <input type="hidden" asp-for="TeacherDetails.Skills.TeacherDetails.Id">
                     <div class="form-group">
                         <label asp-for="Teacher.Photo">Photo</label>
                         <input asp-for="Teacher.Photo" accept="image/*" class="form-control">

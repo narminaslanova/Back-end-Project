@@ -152,7 +152,7 @@
                                 <i class="mdi mdi-settings text-primary"></i>
                                 Settings
                             </a>
-                            <a class="dropdown-item">
+                            <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Logout">
                                 <i class="mdi mdi-logout text-primary"></i>
                                 Logout
                             </a>
@@ -167,69 +167,92 @@
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_sidebar.html -->
-            <nav class="sidebar sidebar-offcanvas" id="sidebar">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link"  asp-controller="Dashboard" asp-action="Index">
-                            <i class="mdi mdi-home menu-icon"></i>
-                            <span class="menu-title">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Slider" asp-action="Index">
-                            <i class="mdi mdi-grid-large menu-icon"></i>
-                            <span class="menu-title">Sliders</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Courses" asp-action="Index">
-                            <i class="mdi mdi-library menu-icon"></i>
-                            <span class="menu-title">Courses</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Teacher" asp-action="Index">
-                            <i class="mdi mdi-account menu-icon"></i>
-                            <span class="menu-title">Teachers</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Blog" asp-action="Index">
-                            <i class="mdi mdi-tumblr-reblog menu-icon"></i>
-                            <span class="menu-title">Blogs</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Events" asp-action="Index">
-                            <i class="mdi mdi-volume-medium menu-icon"></i>
-                            <span class="menu-title">Events</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                            <i class="mdi mdi-account-card-details menu-icon"></i>
-                            <span class="menu-title">Users</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="auth">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-controller="Users" asp-action="Index">Users List</a></li>
-                                @*<li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/login.html"> Login </a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/login-2.html"> Login 2 </a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/register.html"> Register </a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/register-2.html"> Register 2 </a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/lock-screen.html"> Lockscreen </a></li>*@
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="~/admin/documentation/documentation.html">
-                            <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-                            <span class="menu-title">Documentation</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            @if (User.IsInRole("Moderator"))
+            {
+                <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Dashboard" asp-action="Index">
+                                <i class="mdi mdi-home menu-icon"></i>
+                                <span class="menu-title">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Courses" asp-action="Index">
+                                <i class="mdi mdi-library menu-icon"></i>
+                                <span class="menu-title">Courses</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            }
+            else
+            {
+                <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Dashboard" asp-action="Index">
+                                <i class="mdi mdi-home menu-icon"></i>
+                                <span class="menu-title">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Slider" asp-action="Index">
+                                <i class="mdi mdi-grid-large menu-icon"></i>
+                                <span class="menu-title">Sliders</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Courses" asp-action="Index">
+                                <i class="mdi mdi-library menu-icon"></i>
+                                <span class="menu-title">Courses</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Teacher" asp-action="Index">
+                                <i class="mdi mdi-account menu-icon"></i>
+                                <span class="menu-title">Teachers</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Blog" asp-action="Index">
+                                <i class="mdi mdi-tumblr-reblog menu-icon"></i>
+                                <span class="menu-title">Blogs</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Events" asp-action="Index">
+                                <i class="mdi mdi-volume-medium menu-icon"></i>
+                                <span class="menu-title">Events</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                                <i class="mdi mdi-account-card-details menu-icon"></i>
+                                <span class="menu-title">Users</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="auth">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" asp-controller="Users" asp-action="Index">Users List</a></li>
+                                    @*<li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/login.html"> Login </a></li>
+                                <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/login-2.html"> Login 2 </a></li>
+                                <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/register.html"> Register </a></li>
+                                <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/register-2.html"> Register 2 </a></li>
+                                <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/lock-screen.html"> Lockscreen </a></li>*@
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/admin/documentation/documentation.html">
+                                <i class="mdi mdi-file-document-box-outline menu-icon"></i>
+                                <span class="menu-title">Documentation</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            }
+
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">

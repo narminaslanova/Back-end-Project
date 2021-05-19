@@ -36,7 +36,7 @@ namespace EduHome.Controllers
         {
             if (!ModelState.IsValid) return View();
 
-
+           
 
             AppUser newUser = new AppUser
             {
@@ -56,7 +56,7 @@ namespace EduHome.Controllers
 
 
             }
-            await _userManager.AddToRoleAsync(newUser, Roles.Member.ToString());
+            await _userManager.AddToRoleAsync(newUser, Roles.Moderator.ToString());
             await _signInManager.SignInAsync(newUser, true);
             return RedirectToAction("Index", "Home");
         }
