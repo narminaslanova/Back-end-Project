@@ -38,7 +38,7 @@ namespace EduHome.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateAsync([Bind("Event,EventDetails,Speaker")]  EventVM eventVM)
+        public async Task<IActionResult> Create([Bind("Event,EventDetails,Speaker")]  EventVM eventVM)
         {
             if (eventVM.Event == null || eventVM.EventDetails == null || eventVM.Speaker == null) return NotFound();
             if (!ModelState.IsValid) return NotFound();

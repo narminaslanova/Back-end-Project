@@ -4,6 +4,7 @@ using EduHome.Models;
 using EduHome.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
@@ -21,10 +22,13 @@ namespace EduHome.Areas.Admin.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
-        public CoursesController(AppDbContext context, IWebHostEnvironment env)
+        private readonly UserManager<AppUser> _userManager;
+
+        public CoursesController(AppDbContext context, IWebHostEnvironment env, UserManager<AppUser> userManager)
         {
             _context = context;
             _env = env;
+            _userManager = userManager;
         }
         public async Task<IActionResult> Index()
         {
@@ -83,9 +87,11 @@ namespace EduHome.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        
         public async Task<IActionResult> Update(int? id)
         {
+           
+
             if (id == null) return View();
             Courses course = await _context.Courses.Include(c => c.CoursesDetails).ThenInclude(c => c.CourseFeatures).FirstOrDefaultAsync(c => c.Id == id);
             if (course == null) return NotFound();
@@ -103,7 +109,6 @@ namespace EduHome.Areas.Admin.Controllers
         {
             //if (id == null) return NotFound();
             //Courses oldCourse = await _context.Courses.Include(c => c.CoursesDetails).ThenInclude(c => c.CourseFeatures).FirstOrDefaultAsync(c => c.Id == id);
-
             if (coursesVM.Course == null || coursesVM.CoursesDetails == null || coursesVM.CourseFeatures == null) return NotFound();
             if (!ModelState.IsValid) return NotFound();
             if (!coursesVM.Course.Photo.IsValidType("image/"))

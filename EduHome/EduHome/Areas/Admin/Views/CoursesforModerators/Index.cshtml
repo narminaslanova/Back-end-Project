@@ -1,0 +1,57 @@
+﻿@model List<Courses>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Courses</h4>
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Image
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Description
+                                </th>
+                                <th>
+                                    Settings
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Courses course in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="~/img/course/@course.ImageURL" style="width:100px;height:100px;object-fit: cover;" alt="Alternate Text" />
+                                    </td>
+                                    <td>
+                                        @course.Name
+                                    </td>
+                                    <td style="width:20%">
+                                        @course.Description
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-secondary" asp-action="Details" asp-route-id="@course.Id"><i class="mdi mdi-information-outline"></i></a>
+                                        <a class="btn btn-info" asp-action="Update" asp-route-id="@course.Id"><i class="mdi mdi-pencil"></i></a>
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -40,7 +40,7 @@ namespace EduHome.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public async Task<IActionResult> CreateAsync([Bind("Teacher,TeacherDetails,Skills,SocialMedias")] TeacherVM teacherVM)
+        public async Task<IActionResult> Create([Bind("Teacher,TeacherDetails,Skills,SocialMedias")] TeacherVM teacherVM)
         {
             
             if (teacherVM.Teacher == null || teacherVM.TeacherDetails == null || teacherVM.Skills == null || teacherVM.SocialMedia == null) return NotFound();

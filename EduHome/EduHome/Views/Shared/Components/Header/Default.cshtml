@@ -12,8 +12,15 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="header-top-right text-right">
                             <ul>
+                                @if (User.IsInRole("Admin") && User.IsInRole("Moderator"))
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">AdminPanel</a>
+                                    </li>
+                                }
                                 @if (User.Identity.IsAuthenticated)
                                 {
+
                                     <li class="nav-item">
                                         <a class="nav-link" asp-controller="Home" asp-action="Index">@User.Identity.Name</a>
                                     </li>

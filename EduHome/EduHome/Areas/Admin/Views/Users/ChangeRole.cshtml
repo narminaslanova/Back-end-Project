@@ -1,0 +1,78 @@
+﻿@model UserVM
+@using static EduHome.Helpers.Helper;
+@{
+    ViewData["Title"] = "ChangeRole";
+
+
+}
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form method="post">
+    <fieldset class="form-group row">
+        <legend class="col-form-label col-sm-2 float-sm-left pt-0">Roles</legend>
+        <div class="col-sm-10">
+            @foreach (Roles item in Enum.GetValues(typeof(Roles)))
+            {
+
+                @if ((string)TempData["oldRole"] == item.ToString())
+                {
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="newRole" value=@item.ToString() checked>
+                        <label class="form-check-label">
+                            @item.ToString()
+                        </label>
+                    </div>
+                    <span asp-validation-for="Role"></span>
+                }
+                else
+                {
+                    <div class="form-check">
+                        <input class="form-check-input test" id="role-@item.ToString()" type="radio" name="newRole" value="@item.ToString()">
+                        <label class="form-check-label">
+                            @item.ToString()
+                        </label>
+                    </div>
+                    <span asp-validation-for="Role"></span>
+                }
+
+            }
+        </div>
+    </fieldset>
+    <div class="form-group d-none" id="course">
+        <label>Select Course</label>
+        <select class="form-control" multiple name="CourseId" id="CourseId">
+            <option selected="selected"  disabled="disabled">Select Course</option>
+            @foreach (Courses Course in ViewBag.coursesList)
+            {
+                <option value="@Course.Id">@Course.Name</option>
+            }
+
+        </select>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <a asp-action="Index" class="my-3 btn btn-secondary">Go Back</a>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
+@section Script
+{
+   <script>
+       let checkbutton = document.getElementById('role-Moderator');
+       let courses = document.getElementById('course');
+       let test = document.querySelectorAll(".test");
+
+       test.forEach((e) => e.addEventListener('change', function () {
+           
+               if (courses.classList.contains("d-none")) {
+                   courses.classList.remove("d-none");
+               }
+               else
+               {
+                   courses.classList.add("d-none");
+               }
+
+       }));
+      
+   </script>
+}
