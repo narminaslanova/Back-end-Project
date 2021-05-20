@@ -11,6 +11,22 @@
     <Compile Remove="Migrations\20210517143842_AddSMtable.Designer.cs" />
     <Compile Remove="Migrations\20210517144026_AddSMtable.cs" />
     <Compile Remove="Migrations\20210517144026_AddSMtable.Designer.cs" />
+    <Compile Remove="Migrations\20210520100559_DataAnnotationstillSkills.cs" />
+    <Compile Remove="Migrations\20210520100559_DataAnnotationstillSkills.Designer.cs" />
+    <Compile Remove="Migrations\20210520100827_DataAnnotationstillSkills1.cs" />
+    <Compile Remove="Migrations\20210520100827_DataAnnotationstillSkills1.Designer.cs" />
+    <Compile Remove="Migrations\20210520100930_DataAnnotationstillSkills2.cs" />
+    <Compile Remove="Migrations\20210520100930_DataAnnotationstillSkills2.Designer.cs" />
+    <Compile Remove="Migrations\20210520101229_DataAnnotationstillSkills3.cs" />
+    <Compile Remove="Migrations\20210520101229_DataAnnotationstillSkills3.Designer.cs" />
+    <Compile Remove="Migrations\20210520101520_DataAnnotationstillSkills2.cs" />
+    <Compile Remove="Migrations\20210520101520_DataAnnotationstillSkills2.Designer.cs" />
+    <Compile Remove="Migrations\20210520101837_DataAnnotationstillSkills2.cs" />
+    <Compile Remove="Migrations\20210520101837_DataAnnotationstillSkills2.Designer.cs" />
+    <Compile Remove="Migrations\20210520102616_DataAnnotationstillSkills.cs" />
+    <Compile Remove="Migrations\20210520102616_DataAnnotationstillSkills.Designer.cs" />
+    <Compile Remove="Migrations\20210520103023_DataAnnotationstillSkills.cs" />
+    <Compile Remove="Migrations\20210520103023_DataAnnotationstillSkills.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

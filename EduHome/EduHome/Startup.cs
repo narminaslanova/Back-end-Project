@@ -48,7 +48,7 @@ namespace EduHome
                 identityOptions.Lockout.MaxFailedAccessAttempts = 3;
                 identityOptions.Lockout.AllowedForNewUsers = true;
 
-                identityOptions.SignIn.RequireConfirmedEmail = false; //pay attention to this!
+                identityOptions.SignIn.RequireConfirmedEmail = true;
             }).AddDefaultTokenProviders()
               .AddEntityFrameworkStores<AppDbContext>()
             .AddErrorDescriber<IdentityErrorDescriber>();

@@ -14,22 +14,23 @@ namespace EduHome.Helpers
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
             client.UseDefaultCredentials = false;
             client.EnableSsl = true;
-            client.Credentials = new NetworkCredential("lenovohomepage1@gmail.com", "1a2sdf1f");
+            client.Credentials = new NetworkCredential("testforp119@gmail.com", "1122334455fF$");
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            MailMessage message = new MailMessage("lenovohomepage1@gmail.com", mailTo);
+            MailMessage message = new MailMessage("testforp119@gmail.com", mailTo);
             message.Subject = messageSubject;
             message.Body = messageBody;
             message.BodyEncoding = System.Text.Encoding.UTF8;
             message.IsBodyHtml = true;
             await client.SendMailAsync(message);
+
         }
 
-        public enum Roles
-        {
-            Admin,
-            Moderator,
-            Member
-            
-        };
     }
+    public enum Roles
+    {
+        Admin,
+        Moderator,
+        Member
+
+    };
 }

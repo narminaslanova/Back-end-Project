@@ -33,8 +33,15 @@ using EduHome.ViewModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\Areas\Admin\Views\_ViewImports.cshtml"
+using EduHome.Helpers;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"275c52990c07c15a69fb234ca1a4430275f68166", @"/Areas/Admin/Views/CoursesforModerators/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e7af49b5d3cda8b8f85d8f3f819ee9cc7290556d", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2d3370802a47ec9d97544425953873c592982b4b", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_CoursesforModerators_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Courses>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("style", new global::Microsoft.AspNetCore.Html.HtmlString("width:100px;height:100px;object-fit: cover;"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -111,7 +118,7 @@ using EduHome.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("                                <tr>\r\n                                    <td>\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "275c52990c07c15a69fb234ca1a4430275f681667280", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "275c52990c07c15a69fb234ca1a4430275f681667477", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -152,7 +159,7 @@ AddHtmlAttributeValue("", 1262, course.ImageURL, 1262, 16, false);
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                                    </td>\r\n                                    <td>\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "275c52990c07c15a69fb234ca1a4430275f681669934", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "275c52990c07c15a69fb234ca1a4430275f6816610131", async() => {
                 WriteLiteral("<i class=\"mdi mdi-information-outline\"></i>");
             }
             );
@@ -184,7 +191,7 @@ AddHtmlAttributeValue("", 1262, course.ImageURL, 1262, 16, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "275c52990c07c15a69fb234ca1a4430275f6816612327", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "275c52990c07c15a69fb234ca1a4430275f6816612525", async() => {
                 WriteLiteral("<i class=\"mdi mdi-pencil\"></i>");
             }
             );

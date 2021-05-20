@@ -131,7 +131,7 @@
                                 <a href="event-details.html"><img src="~/img/event/@ev.ImageURL" alt="event"></a>
                             </div>
                             <div class="event-content text-left">
-                                <h3>@ev.Date</h3>
+                                <h3>@ev.Date.ToShortDateString()</h3>
                                 <h4><a href="event-details.html">@ev.Title</a></h4>
                                 <ul>
                                     <li><i class="fa fa-clock-o"></i>@ev.Time</li>

@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static EduHome.Helpers.Helper;
+using EduHome.Helpers;
 
 namespace EduHome.Controllers
 {
@@ -53,14 +53,34 @@ namespace EduHome.Controllers
                     ModelState.AddModelError("", error.Description);
                 }
                 return View();
-
-
             }
-            await _userManager.AddToRoleAsync(newUser, Roles.Member.ToString());
-            await _signInManager.SignInAsync(newUser, true);
-            return RedirectToAction("Index", "Home");
-        }
+            string code = _userManager.GenerateEmailConfirmationTokenAsync(newUser).Result;
+            string link = Url.Action("VerifyEmail", "Account", new { userName = newUser.UserName, code = code }, protocol: HttpContext.Request.Scheme);
 
+            await _userManager.AddToRoleAsync(newUser, Roles.Member.ToString());
+            string aTag = $"<a href='{link}'>Click here for confirm</a>";
+            await Helper.SendMessage("Email Confirmation", aTag, newUser.Email);
+            
+            return RedirectToAction("EmailVerification", "Account");
+        }
+        public IActionResult EmailVerification()
+        {
+           
+            return View();
+        }
+        public async Task<IActionResult> VerifyEmail(string userName, string code)
+        {
+            if (userName == null || code == null) return NotFound();
+            AppUser user = await _userManager.FindByNameAsync(userName);
+            if (user == null) return NotFound();
+            IdentityResult identityResult = await _userManager.ConfirmEmailAsync(user, code);
+            if (identityResult.Succeeded)
+            {
+                await _signInManager.SignInAsync(user, true);
+                return View();
+            }
+            return BadRequest();
+        }
         public IActionResult Login()
         {
 

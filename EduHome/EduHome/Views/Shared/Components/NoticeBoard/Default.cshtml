@@ -8,7 +8,7 @@
             @foreach (NoticeBoard nb in Model)
             {
                 <div class="single-notice-left mb-23 pb-20">
-                    <h4>@nb.Date</h4>
+                    <h4>@nb.Date.ToShortDateString()</h4>
                     <p>@nb.Description</p>
                 </div>
             }

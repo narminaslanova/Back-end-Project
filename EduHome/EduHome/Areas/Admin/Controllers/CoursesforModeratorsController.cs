@@ -2,6 +2,7 @@
 using EduHome.Extensions;
 using EduHome.Models;
 using EduHome.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,7 @@ using System.Threading.Tasks;
 namespace EduHome.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Moderator")]
     public class CoursesforModeratorsController : Controller
     {
         private readonly AppDbContext _context;

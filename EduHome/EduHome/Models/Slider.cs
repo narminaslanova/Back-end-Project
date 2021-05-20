@@ -11,9 +11,11 @@ namespace EduHome.Models
     public class Slider
     {
         public int Id { get; set; }
+        [Required]
         public string ImageURL { get; set; }
         [NotMapped, Required]
         public IFormFile Photo { get; set; }
+        [Required]
         public string Title { get; set; }
         public string Description { get; set; }
         public bool IsDeleted { get; set; }

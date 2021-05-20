@@ -1,4 +1,5 @@
 ﻿using EduHome.DAL;
+using EduHome.Helpers;
 using EduHome.Models;
 using EduHome.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -9,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static EduHome.Helpers.Helper;
 
 namespace EduHome.Areas.Admin.Controllers
 {
@@ -58,10 +58,7 @@ namespace EduHome.Areas.Admin.Controllers
             string role = (await _userManager.GetRolesAsync(userapp))[0];
             
             //string userName = ;
-
-           
             AppUser currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
-
             //return Json(currentUser);
 
             string currentRole = (await _userManager.GetRolesAsync(currentUser))[0];

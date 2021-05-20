@@ -12,7 +12,7 @@
         </div>
         <div class="blog-content">
             <div class="blog-top">
-                <p>By @blog.Author  /  @blog.Date  /  <i class="fa fa-comments-o"></i> 4</p>
+                <p>By @blog.Author  /  @blog.Date.ToShortDateString()  /  <i class="fa fa-comments-o"></i> 4</p>
             </div>
             <div class="blog-bottom">
                 <h2><a  asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id">@blog.Title</a></h2>

@@ -51,7 +51,7 @@
                         <div class="course-details-right">
                             <h3>COURSE FEATURES</h3>
                             <ul>
-                                <li>starts <span>@Model.CoursesDetails.CourseFeatures.StartTime</span></li>
+                                <li>starts <span>@Model.CoursesDetails.CourseFeatures.StartTime.ToShortDateString()</span></li>
                                 <li>duration <span>@Model.CoursesDetails.CourseFeatures.Duration Month</span></li>
                                 <li>class duration <span>@Model.CoursesDetails.CourseFeatures.ClassDuration hours</span></li>
                                 <li>skill level <span>@Model.CoursesDetails.CourseFeatures.SkillLevel</span></li>

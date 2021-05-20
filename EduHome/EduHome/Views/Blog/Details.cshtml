@@ -34,7 +34,7 @@
                     </div>
                     <div class="blog-details-content">
                         <h2>@Model.Title</h2>
-                        <h6>By @Model.Author  /  @Model.Date  /  <i class="fa fa-comments-o"></i> 4</h6>
+                        <h6>By @Model.Author  /  @Model.Date.ToShortDateString()  /  <i class="fa fa-comments-o"></i> 4</h6>
                         @Html.Raw(Model.BlogDetails.Description)
                     </div>
                     <div class="reply-area">
