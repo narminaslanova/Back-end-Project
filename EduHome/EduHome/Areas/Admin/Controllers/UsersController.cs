@@ -26,12 +26,33 @@ namespace EduHome.Areas.Admin.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
+            ViewBag.PageCount = Decimal.Ceiling((decimal)_userManager.Users.Count() /5);
+            ViewBag.Page = page;
+            if (page == null)
+            {
+                List<AppUser> users = _userManager.Users.Take(5).OrderBy(x => x.Fullname).ToList();
+                List<UserVM> userVMs = new List<UserVM>();
+                foreach (AppUser user in users)
+                {
+                    UserVM userVM = new UserVM
+                    {
+                        Id = user.Id,
+                        Fullname = user.Fullname,
+                        Email = user.Email,
+                        Username = user.UserName,
+                        IsDeleted = user.IsDeleted,
+                        Role = (await _userManager.GetRolesAsync(user))[0]
+                    };
+                    userVMs.Add(userVM);
+                }
 
-            List<AppUser> users = _userManager.Users.ToList();
-            List<UserVM> userVMs = new List<UserVM>();
-            foreach (AppUser user in users)
+                return View(userVMs);
+            }
+            List<AppUser> users1 = _userManager.Users.Skip(((int)page - 1) * 5).Take(5).OrderBy(x => x.Fullname).ToList();
+            List<UserVM> userVMs1 = new List<UserVM>();
+            foreach (AppUser user in users1)
             {
                 UserVM userVM = new UserVM
                 {
@@ -42,11 +63,11 @@ namespace EduHome.Areas.Admin.Controllers
                     IsDeleted = user.IsDeleted,
                     Role = (await _userManager.GetRolesAsync(user))[0]
                 };
-                userVMs.Add(userVM);
+                userVMs1.Add(userVM);
             }
 
-            return View(userVMs);
-            // return View();
+            return View(userVMs1);
+            // Skip(((int)page - 1) * 3).Take(3)
         }
 
         public async Task<IActionResult> Activate(string id)
@@ -78,14 +99,9 @@ namespace EduHome.Areas.Admin.Controllers
             }
             else
             {
-
                 return Content("You cannot deactivate any user");
 
-
             }
-
-
-
             await _userManager.UpdateAsync(userapp);
             return RedirectToAction(nameof(Index));
 
@@ -187,6 +203,7 @@ namespace EduHome.Areas.Admin.Controllers
                     course.AppUserId = userapp.Id;
                     
                 }
+                
                 _context.Courses.UpdateRange(courses);
                 await _context.SaveChangesAsync();
             }

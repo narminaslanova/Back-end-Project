@@ -30,10 +30,17 @@ namespace EduHome.Areas.Admin.Controllers
             _env = env;
             _userManager = userManager;
         }
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int? page)
         {
-            List<Courses> courses =await _context.Courses.Include(c => c.CoursesDetails).ThenInclude(c => c.CourseFeatures).ToListAsync();
-            return View(courses);
+            
+            ViewBag.PageCount = Decimal.Ceiling((decimal)_context.Courses.Where(c=>c.IsDeleted==false).Count() / 3);
+            ViewBag.Page = page;
+            if (page==null)
+            {
+                List<Courses> courses = _context.Courses.Include(c => c.CoursesDetails).ThenInclude(c => c.CourseFeatures).Take(3).ToList();
+                return View(courses);
+            }
+            return View(_context.Courses.Include(c => c.CoursesDetails).ThenInclude(c => c.CourseFeatures).Skip(((int)page-1)*3).Take(3).ToList());
         }
 
         public async Task<IActionResult> Details(int? id)

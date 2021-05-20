@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index";
 }
 
@@ -33,6 +32,7 @@
                         <input type="search" id="search" placeholder="Search..." name="search" />
                         <button type="submit">search</button>
                     </form>
+                    <ul class="list-group" id="result"></ul>
                 </div>
             </div>
         </div>
@@ -54,7 +54,8 @@
 
 @section Script
 {
-   
+    <script src="~/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         //const searchInput = document.getElementById('search');
 
@@ -62,21 +63,7 @@
         //    console.log(event.target.value);
         //})
 
-        $(document).ready(function () {
-            $("#search").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                console.log(value);
-                //$("#myTable tr").filter(function () {
-                //    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                //});
-            });
-        });
-
-            //$.ajax({
-            //    type: "post",
-            //    url: "/Home/GetSearchingData?SearchBy=" + SearchBy + "&SearchValue=" + SearchValue,
-            //    contentType: "html",
-            //    success: function (result) {
+       
 
     </script>
 

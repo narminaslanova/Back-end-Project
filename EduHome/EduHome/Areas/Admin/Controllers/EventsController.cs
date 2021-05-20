@@ -25,10 +25,17 @@ namespace EduHome.Areas.Admin.Controllers
             _context = context;
             _env = env;
         }
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int? page)
         {
-            List<Event> eventt = await _context.Events.Include(e => e.EventDetails).Include(e => e.SpeakerEvents).ThenInclude(e => e.Speaker).ToListAsync();
-            return View(eventt);
+            ViewBag.PageCount = Decimal.Ceiling((decimal)_context.Blogs.Where(c => c.IsDeleted == false).Count() / 3);
+            ViewBag.Page = page;
+            if (page == null)
+            {
+                List<Event> eventt =  _context.Events.Include(e => e.EventDetails).Include(e => e.SpeakerEvents).ThenInclude(e => e.Speaker).Take(3).ToList();
+                return View(eventt);
+            }
+            return View(_context.Events.Where(b => b.IsDeleted == false).Include(b => b.EventDetails).Include(e => e.SpeakerEvents).ThenInclude(e => e.Speaker).Skip(((int)page - 1) * 3).Take(3).ToList());
+            
         }
 
         public IActionResult Create()
@@ -75,6 +82,7 @@ namespace EduHome.Areas.Admin.Controllers
            await _context.EventDetails.AddAsync(eventVM.EventDetails);
             await _context.SpeakerEvent.AddRangeAsync(speakerEvents);
            await _context.SaveChangesAsync();
+
            return RedirectToAction(nameof(Index));
         }
 

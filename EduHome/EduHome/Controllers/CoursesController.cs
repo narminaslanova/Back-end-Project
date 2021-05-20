@@ -18,6 +18,7 @@ namespace EduHome.Controllers
         }
         public IActionResult Index()
         {
+            
             return View();
         }
 
@@ -29,5 +30,7 @@ namespace EduHome.Controllers
             return View(course);
 
         }
+      
+
     }
 }

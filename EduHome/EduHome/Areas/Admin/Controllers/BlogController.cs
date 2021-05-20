@@ -25,10 +25,17 @@ namespace EduHome.Areas.Admin.Controllers
             _context = context;
             _env = env;
         }
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int? page)
         {
-            List<Blog> blogs = await _context.Blogs.Where(b=>b.IsDeleted==false).Include(b => b.BlogDetails).ToListAsync();
-            return View(blogs);
+            ViewBag.PageCount = Decimal.Ceiling((decimal)_context.Blogs.Where(c => c.IsDeleted == false).Count() / 3);
+            ViewBag.Page = page;
+            if (page == null)
+            {
+                List<Blog> blogs = _context.Blogs.Where(b => b.IsDeleted == false).Include(b => b.BlogDetails).Take(3).ToList();
+                return View(blogs);
+            }
+            return View(_context.Blogs.Where(b => b.IsDeleted == false).Include(b => b.BlogDetails).Skip(((int)page - 1) * 3).Take(3).ToList());
+            
         }
 
         public IActionResult Create()

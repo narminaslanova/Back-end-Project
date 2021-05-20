@@ -26,10 +26,17 @@ namespace EduHome.Areas.Admin.Controllers
             _env = env;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
-            List<Teacher> teachers = _context.Teachers.Include(t => t.TeacherDetails).ThenInclude(t => t.Skills).Include(t => t.SocialMedias).ToList();
-            return View(teachers);
+            ViewBag.PageCount = Decimal.Ceiling((decimal)_context.Teachers.Where(c => c.IsDeleted == false).Count() / 4);
+            ViewBag.Page = page;
+            if (page == null)
+            {
+                List<Teacher> teachers = _context.Teachers.Include(t => t.TeacherDetails).ThenInclude(t => t.Skills).Include(t => t.SocialMedias).Take(4).ToList();
+                return View(teachers);
+            }
+            return View(_context.Teachers.Include(t => t.TeacherDetails).ThenInclude(t => t.Skills).Include(t => t.SocialMedias).Skip(((int)page-1)*4).Take(4).ToList());
+            
         }
 
         public IActionResult Create()

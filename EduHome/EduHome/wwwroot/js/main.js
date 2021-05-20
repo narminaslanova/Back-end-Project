@@ -13,6 +13,32 @@
             password.type = "password";
         }
     });
+
+    $(document).ready(function () {
+        $('#search').keyup(function () {
+            $('#result').html('');
+            var value = $(this).val().toLowerCase();
+            console.log(value);
+        });
+        function Search(value) {
+            $.ajax({
+                type: "POST",
+                url: "/Home/Search",
+                data: "value=" + value,
+                success: function (data) {
+                    alert(data);
+                    $("#someDiv").html(data);
+                }
+            });
+        }
+    });
+
+            //$.ajax({
+            //    type: "post",
+            //    url: "/Home/GetSearchingData?SearchBy=" + SearchBy + "&SearchValue=" + SearchValue,
+            //    contentType: "html",
+            //    success: function (result) {
+
 /*------------------------------------
 	Sticky Menu 
 --------------------------------------*/
