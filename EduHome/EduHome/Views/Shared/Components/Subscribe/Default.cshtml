@@ -6,13 +6,14 @@
             <p>@Model.Description</p>
         </div>
         <div class="newsletter-form mc_embed_signup">
-            <form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <form  method="post" id="@ViewBag.Page-subscribe-form" >
                 <div id="mc_embed_signup_scroll" class="mc-form">
-                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your e-mail address" required>
+                    <input type="email"  name="Email" class="email" id="@ViewBag.Page-EMAIL" placeholder="Enter your e-mail address" required>
                     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                    <div class="mc-news" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
-                    <button id="mc-embedded-subscribe" class="default-btn" type="submit" name="subscribe"><span>subscribe</span></button>
+                    @*<div class="mc-news" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>*@
+                    <button id="@ViewBag.Page-subscribe" type="button" class="default-btn" name="subscribe"><span>subscribe</span></button>
                 </div>
+                <div><span id="@ViewBag.Page-span"></span></div>
             </form>
             <!-- mailchimp-alerts Start -->
             <div class="mailchimp-alerts">

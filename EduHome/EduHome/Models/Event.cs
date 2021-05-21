@@ -17,7 +17,7 @@ namespace EduHome.Models
         public DateTime Date { get; set; }
         [Required]
         public string Time { get; set; }
-        [Required]
+       
         public string City { get; set; }
         public string ImageURL { get; set; }
         [NotMapped]
@@ -25,6 +25,8 @@ namespace EduHome.Models
         public bool IsDeleted { get; set; }
         public EventDetails EventDetails { get; set; }
         public List<SpeakerEvent> SpeakerEvents { get; set; }
+        public List<SubscribeEvent> SubscribeEvents { get; set; }
+
 
     }
 }

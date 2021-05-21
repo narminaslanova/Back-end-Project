@@ -193,18 +193,24 @@ namespace EduHome.Areas.Admin.Controllers
             {
                 //Courses course = _context.Courses.FirstOrDefault(c => c.Id == CourseId);
                 List<Courses> courses = new List<Courses>();
+               
                 foreach (int item in CourseId)
                 {
-                     courses = _context.Courses.Where(c=>c.Id==item).ToList();
+                    Courses course = new Courses();
+
+                    course =await _context.Courses.FirstOrDefaultAsync(c => c.Id == item);
+                    courses.Add(course);
+                    
                 }
 
                 foreach (Courses course in courses)
                 {
                     course.AppUserId = userapp.Id;
-                    
+                    _context.Courses.Update(course);
                 }
-                
-                _context.Courses.UpdateRange(courses);
+               // userapp.Courses = courses;
+               
+                await _userManager.UpdateAsync(userapp);
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction(nameof(Index));

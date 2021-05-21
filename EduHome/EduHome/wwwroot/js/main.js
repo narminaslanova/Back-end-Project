@@ -1,5 +1,5 @@
 (function ($) {
-"use strict";  
+    "use strict";
 
 
     $(document).on("change", "#showPassword", function () {
@@ -14,114 +14,97 @@
         }
     });
 
-    $(document).ready(function () {
-        $('#search').keyup(function () {
-            $('#result').html('');
-            var value = $(this).val().toLowerCase();
-            console.log(value);
-        });
-        function Search(value) {
-            $.ajax({
-                type: "POST",
-                url: "/Home/Search",
-                data: "value=" + value,
-                success: function (data) {
-                    alert(data);
-                    $("#someDiv").html(data);
-                }
-            });
+   
+
+    //$.ajax({
+    //    type: "post",
+    //    url: "/Home/GetSearchingData?SearchBy=" + SearchBy + "&SearchValue=" + SearchValue,
+    //    contentType: "html",
+    //    success: function (result) {
+
+    /*------------------------------------
+        Sticky Menu 
+    --------------------------------------*/
+    var windows = $(window);
+    var stick = $(".header-sticky");
+    windows.on('scroll', function () {
+        var scroll = windows.scrollTop();
+        if (scroll < 5) {
+            stick.removeClass("sticky");
+        } else {
+            stick.addClass("sticky");
         }
     });
+    /*------------------------------------
+        jQuery MeanMenu 
+    --------------------------------------*/
+    $('.main-menu nav').meanmenu({
+        meanScreenWidth: "767",
+        meanMenuContainer: '.mobile-menu'
+    });
 
-            //$.ajax({
-            //    type: "post",
-            //    url: "/Home/GetSearchingData?SearchBy=" + SearchBy + "&SearchValue=" + SearchValue,
-            //    contentType: "html",
-            //    success: function (result) {
 
-/*------------------------------------
-	Sticky Menu 
---------------------------------------*/
- var windows = $(window);
-    var stick = $(".header-sticky");
-	windows.on('scroll',function() {    
-		var scroll = windows.scrollTop();
-		if (scroll < 5) {
-			stick.removeClass("sticky");
-		}else{
-			stick.addClass("sticky");
-		}
-	});  
-/*------------------------------------
-	jQuery MeanMenu 
---------------------------------------*/
-	$('.main-menu nav').meanmenu({
-		meanScreenWidth: "767",
-		meanMenuContainer: '.mobile-menu'
-	});
-    
-    
     /* last  2 li child add class */
     $('ul.menu>li').slice(-2).addClass('last-elements');
-/*------------------------------------
-	Owl Carousel
---------------------------------------*/
+    /*------------------------------------
+        Owl Carousel
+    --------------------------------------*/
     $('.slider-owl').owlCarousel({
-        loop:true,
-        nav:true,
+        loop: true,
+        nav: true,
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
         smartSpeed: 2500,
-        navText:['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
-        responsive:{
-            0:{
-                items:1
+        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+        responsive: {
+            0: {
+                items: 1
             },
-            768:{
-                items:1
+            768: {
+                items: 1
             },
-            1000:{
-                items:1
+            1000: {
+                items: 1
             }
         }
     });
 
     $('.partner-owl').owlCarousel({
-        loop:true,
-        nav:true,
-        navText:['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
-        responsive:{
-            0:{
-                items:1
+        loop: true,
+        nav: true,
+        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+        responsive: {
+            0: {
+                items: 1
             },
-            768:{
-                items:3
+            768: {
+                items: 3
             },
-            1000:{
-                items:5
-            }
-        }
-    });  
-
-    $('.testimonial-owl').owlCarousel({
-        loop:true,
-        nav:true,
-        navText:['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
-        responsive:{
-            0:{
-                items:1
-            },
-            768:{
-                items:1
-            },
-            1000:{
-                items:1
+            1000: {
+                items: 5
             }
         }
     });
-/*------------------------------------
-	Video Player
---------------------------------------*/
+
+    $('.testimonial-owl').owlCarousel({
+        loop: true,
+        nav: true,
+        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 1
+            },
+            1000: {
+                items: 1
+            }
+        }
+    });
+    /*------------------------------------
+        Video Player
+    --------------------------------------*/
     $('.video-popup').magnificPopup({
         type: 'iframe',
         mainClass: 'mfp-fade',
@@ -131,38 +114,38 @@
             enabled: true,
         }
     });
-    
+
     $('.image-popup').magnificPopup({
         type: 'image',
-        gallery:{
-            enabled:true
+        gallery: {
+            enabled: true
         }
-    }); 
-/*----------------------------
-    Wow js active
------------------------------- */
+    });
+    /*----------------------------
+        Wow js active
+    ------------------------------ */
     new WOW().init();
-/*------------------------------------
-	Scrollup
---------------------------------------*/
+    /*------------------------------------
+        Scrollup
+    --------------------------------------*/
     $.scrollUp({
         scrollText: '<i class="fa fa-angle-up"></i>',
         easingType: 'linear',
         scrollSpeed: 900,
         animation: 'fade'
     });
-/*------------------------------------
-	Nicescroll
---------------------------------------*/
-     $('body').scrollspy({ 
-            target: '.navbar-collapse',
-            offset: 95
-        });
-$(".notice-left").niceScroll({
-            cursorcolor: "#EC1C23",
-            cursorborder: "0px solid #fff",
-            autohidemode: false,
-            
-        });
+    /*------------------------------------
+        Nicescroll
+    --------------------------------------*/
+    $('body').scrollspy({
+        target: '.navbar-collapse',
+        offset: 95
+    });
+    $(".notice-left").niceScroll({
+        cursorcolor: "#EC1C23",
+        cursorborder: "0px solid #fff",
+        autohidemode: false,
+
+    });
 
 })(jQuery);	

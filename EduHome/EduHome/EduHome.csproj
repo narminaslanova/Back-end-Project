@@ -27,6 +27,8 @@
     <Compile Remove="Migrations\20210520102616_DataAnnotationstillSkills.Designer.cs" />
     <Compile Remove="Migrations\20210520103023_DataAnnotationstillSkills.cs" />
     <Compile Remove="Migrations\20210520103023_DataAnnotationstillSkills.Designer.cs" />
+    <Compile Remove="Migrations\20210521081548_createNewTables.cs" />
+    <Compile Remove="Migrations\20210521081548_createNewTables.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

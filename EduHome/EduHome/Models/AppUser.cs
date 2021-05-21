@@ -11,7 +11,6 @@ namespace EduHome.Models
     {
         [Required]
         public string Fullname { get; set; }
-
         public bool IsDeleted { get; set; }
         public ICollection<Courses> Courses{get; set;}
     }

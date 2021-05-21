@@ -16,8 +16,9 @@ namespace EduHome.ViewComponents
             _context = context;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(string page)
         {
+            ViewBag.Page = page;
             Subscribe subscribe = _context.Subscribes.FirstOrDefault();
             return View(await Task.FromResult(subscribe));
         }

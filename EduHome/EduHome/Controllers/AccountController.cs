@@ -8,21 +8,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EduHome.Helpers;
+using EduHome.DAL;
+using System.Text.RegularExpressions;
 
 namespace EduHome.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager; //for signin and out actions
         private readonly RoleManager<IdentityRole> _roleManager; //create update roles
         //private readonly ILogger<AccountController> _logger;
 
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager /*ILogger<AccountController> logger*/)
+        public AccountController(AppDbContext context, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager /*ILogger<AccountController> logger*/)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _context = context;
             //_logger = logger;
 
         }
@@ -59,7 +63,7 @@ namespace EduHome.Controllers
 
             await _userManager.AddToRoleAsync(newUser, Roles.Member.ToString());
             string aTag = $"<a href='{link}'>Click here for confirm</a>";
-            await Helper.SendMessage("Email Confirmation", aTag, newUser.Email);
+            await Helper.SendMessageAsync("Email Confirmation", aTag, newUser.Email);
             
             return RedirectToAction("EmailVerification", "Account");
         }
@@ -76,6 +80,14 @@ namespace EduHome.Controllers
             IdentityResult identityResult = await _userManager.ConfirmEmailAsync(user, code);
             if (identityResult.Succeeded)
             {
+                bool IsExist = _context.Subscribers.Any(e => e.Email == user.Email);
+                if (IsExist)
+                {
+                    return Content("This email already is subscribed");
+                }
+                Subscribers subscribers = new Subscribers() { Email = user.Email };
+                await _context.Subscribers.AddAsync(subscribers);
+                await _context.SaveChangesAsync();
                 await _signInManager.SignInAsync(user, true);
                 return View();
             }
@@ -135,6 +147,32 @@ namespace EduHome.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+       
+      
+        [HttpPost]
+        public async Task<IActionResult> SendNotification(string email)
+        {
+           if (email == null) return Content("Please,insert email");
+
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(email);
+            if (!match.Success)
+            {
+                return Content("Please,insert email");
+            }
+            else
+            {
+               bool IsExist= _context.Subscribers.Any(e => e.Email == email);
+                if (IsExist)
+                {
+                    return Content("This email already is subscribed");
+                }
+                Subscribers subscribers = new Subscribers() { Email = email };
+                await _context.Subscribers.AddAsync(subscribers);
+                await _context.SaveChangesAsync();
+            }
+            return Content("You are now a subscriber!");
+        }
         //this part is for coder
         #region Create Roles
         //public async Task CreateRoles()

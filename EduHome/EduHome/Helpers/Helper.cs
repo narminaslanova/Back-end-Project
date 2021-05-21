@@ -9,7 +9,7 @@ namespace EduHome.Helpers
 {
     public static class Helper
     {
-        public static async Task SendMessage(string messageSubject, string messageBody, string mailTo)
+        public static async Task SendMessageAsync(string messageSubject, string messageBody, string mailTo)
         {
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
             client.UseDefaultCredentials = false;
@@ -24,13 +24,13 @@ namespace EduHome.Helpers
             await client.SendMailAsync(message);
 
         }
-
     }
-    public enum Roles
-    {
-        Admin,
-        Moderator,
-        Member
+        public enum Roles
+        {
+            Admin,
+            Moderator,
+            Member
 
-    };
+        };
+    
 }

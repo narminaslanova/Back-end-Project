@@ -140,7 +140,7 @@
 <div class="subscribe-area pt-60 pb-70">
     <div class="container">
         <div class="row">
-            @await Component.InvokeAsync("Subscribe"); 
+            @await Component.InvokeAsync("Subscribe", new { page = "Teachers" });
         </div>
     </div>
 </div>

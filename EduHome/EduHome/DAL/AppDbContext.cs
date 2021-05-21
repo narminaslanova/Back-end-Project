@@ -32,6 +32,7 @@ namespace EduHome.DAL
         public DbSet<Subscribe> Subscribes { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<SocialMediaTable> SocialMediaTable { get; set; }
-
+        public DbSet<Subscribers> Subscribers { get; set; }
+        public DbSet<SubscribeEvent> SubscribeEvents { get; set; }
     }
 }

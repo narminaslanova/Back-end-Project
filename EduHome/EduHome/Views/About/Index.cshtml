@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index";
 }
 
@@ -20,19 +19,15 @@
     </div>
 </div>
 <!-- Banner Area End -->
-
-
 <!-- About Start -->
 <div class="about-area pt-145 pb-155">
     <div class="container">
         <div class="row">
-            @await Component.InvokeAsync("AboutInfo") 
+            @await Component.InvokeAsync("AboutInfo")
         </div>
     </div>
 </div>
 <!-- About End -->
-
-
 <!-- Teacher Start -->
 <div class="teacher-area pb-150">
     <div class="container">
@@ -45,13 +40,11 @@
             </div>
         </div>
         <div class="row">
-           @await Component.InvokeAsync("Teacher", 4) 
+            @await Component.InvokeAsync("Teacher", 4)
         </div>
     </div>
 </div>
 <!-- Teacher End -->
-
-
 <!-- Testimonial Area Start -->
 <div class="testimonial-area pt-110 pb-105 text-center">
     <div class="container">
@@ -63,8 +56,6 @@
     </div>
 </div>
 <!-- Testimonial Area End -->
-
-
 <!-- Notice Start -->
 <section class="notice-area two pt-140 pb-100">
     <div class="container">
@@ -86,13 +77,11 @@
     </div>
 </section>
 <!-- Notice End -->
-
-
 <!-- Subscribe Start -->
 <div class="subscribe-area pt-58 pb-70">
     <div class="container">
         <div class="row">
-            @await Component.InvokeAsync("Subscribe")
+            @await Component.InvokeAsync("Subscribe", new { page = "About" })
         </div>
     </div>
 </div>

@@ -29,7 +29,7 @@
                 </div>
                 <div class="course-form">
                     <form action="#">
-                        <input type="search" id="search" placeholder="Search..." name="search" />
+                        <input type="search" id="search" placeholder="Search..." name="Search" />
                         <button type="submit">search</button>
                     </form>
                     <ul class="list-group" id="result"></ul>
@@ -46,7 +46,7 @@
 <div class="subscribe-area pt-60 pb-70">
     <div class="container">
         <div class="row">
-            @await Component.InvokeAsync("Subscribe")
+            @await Component.InvokeAsync("Subscribe", new { page = "Courses" })
         </div>
     </div>
 </div>
