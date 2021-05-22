@@ -357,3 +357,4 @@ C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\R
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_EventPartial.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_BlogPartial.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_TeacherPartial.cshtml.g.cs
+C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_GlobalPartial.cshtml.g.cs

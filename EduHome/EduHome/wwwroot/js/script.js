@@ -70,15 +70,18 @@
     //****************GlobalSearch starts**************//
 
     let gInput;
+   // $('#global-input').val("");
     $('#global-input').keyup(function () {
         gInput = $(this).val().trim();
+        $('#globals-list #global-list').remove();
+        $('#globals-list').empty();
         if (gInput.length > 0) {
             $.ajax({
                 url: `/Home/GlobalSearch/`,
                 data: {
                     "search": gInput
                 },
-                type: "POST",
+                type: "Get",
                 success: function (res) {
                     $('#globals-list').append(res);
                 }

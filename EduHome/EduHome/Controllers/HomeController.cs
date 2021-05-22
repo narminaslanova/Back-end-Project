@@ -32,22 +32,22 @@ namespace EduHome.Controllers
         {
             if (page == "Course")
             {
-                List<Courses> courses = await _context.Courses.Where(c=>c.Name.ToLower().Contains(name)).ToListAsync();
+                List<Courses> courses = await _context.Courses.Where(c=> c.IsDeleted == false && c.Name.ToLower().Contains(name)).ToListAsync();
                 return PartialView("_CoursePartial" ,courses);
             }
             else if (page == "Blog")
             {
-                List<Blog> blogs = await _context.Blogs.Where(c => c.Title.Contains(name)).ToListAsync();
+                List<Blog> blogs = await _context.Blogs.Where(c => c.IsDeleted == false && c.Title.Contains(name)).ToListAsync();
                 return PartialView("_BlogPartial", blogs);
             }
             else if (page == "Teacher")
             {
-                List<Teacher> teachers = await _context.Teachers.Where(c => c.FullName.Contains(name)).ToListAsync();
+                List<Teacher> teachers = await _context.Teachers.Where(c => c.IsDeleted == false && c.FullName.Contains(name)).ToListAsync();
                 return PartialView("_TeacherPartial", teachers);
             }
             else if (page == "Event")
             {
-                List<Event> eventt = await _context.Events.Where(c => c.Title.Contains(name)).ToListAsync();
+                List<Event> eventt = await _context.Events.Where(c => c.IsDeleted == false && c.Title.Contains(name)).ToListAsync();
                 return PartialView("_EventPartial", eventt);
             }
             else{

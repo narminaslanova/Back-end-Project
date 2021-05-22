@@ -1,4 +1,68 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model SearchVM
+
+<ul id="globals-list">
+    @if (Model.Courses != null)
+    {
+        <li style="display:flex!important;align-items:center!important"><h4>Courses</h4></li>
+        @foreach (Courses item in Model.Courses)
+        {
+            <li>
+                <a asp-controller="Courses" asp-action="Details" asp-route-id="@item.Id">
+                    <div style="display:flex!important;align-items:center!important">
+                        <img src="~/img/course/@item.ImageURL" style="width:50px;border-radius:50px!important;height:50px!important;object-fit:cover" alt="Alternate Text" />
+                        <span style="font-size:12px!important">@item.Name</span>
+                    </div>
+                </a>
+            </li>
+        }
+        <li style="display:flex!important;align-items:center!important">--------------------------------</li>
+    }
+    @if (Model.Teachers != null)
+    {
+        <li style="display:flex!important;align-items:center!important"><h4>Teachers</h4></li>
+        @foreach (Teacher item in Model.Teachers)
+        {
+            <li>
+                <a asp-controller="Teachers" asp-action="Details" asp-route-id="@item.Id">
+                    <div style="display:flex!important;align-items:center!important">
+                        <img src="~/img/teacher/@item.ImageURL" style="width:50px!important;border-radius:50px!important;height:50px!important;object-fit:cover" alt="Alternate Text" />
+                        <span style="font-size:12px!important">@item.FullName</span>
+                    </div>
+                </a>
+            </li>
+        }
+        <li style="display:flex!important;align-items:center!important">--------------------------------</li>
+    }
+    @if (Model.Blogs != null)
+    {
+        <li style="display:flex!important;align-items:center!important"><h4>Blogs</h4></li>
+        @foreach (Blog item in Model.Blogs)
+        {
+            <li>
+                <a asp-controller="Blog" asp-action="Details" asp-route-id="@item.Id">
+                    <div style="display:flex!important;align-items:center!important">
+                        <img src="~/img/blog/@item.ImageURL" style="width:50px!important;border-radius:50px!important;height:50px!important;object-fit:cover" alt="Alternate Text" />
+                        <span style="font-size:12px!important">@item.Title</span>
+                    </div>
+                </a>
+            </li>
+        }
+        <li style="display:flex!important;align-items:center!important">--------------------------------</li>
+    }
+    @if (Model.Events != null)
+    {
+        <li style="display:flex!important;align-items:center!important"><h4>Events</h4></li>
+        @foreach (Event item in Model.Events)
+        {
+            <li>
+                <a asp-controller="Events" asp-action="Details" asp-route-id="@item.Id">
+                    <div style="display:flex!important;align-items:center!important">
+                        <img src="~/img/event/@item.ImageURL" style="width:50px!important;border-radius:50px!important;height:50px!important;object-fit:cover" alt="Alternate Text" />
+                        <span style="font-size:12px!important">@item.Title</span>
+                    </div>
+                </a>
+            </li>
+        }
+        <li style="display:flex!important;align-items:center!important">--------------------------------</li>
+    }
+</ul>
