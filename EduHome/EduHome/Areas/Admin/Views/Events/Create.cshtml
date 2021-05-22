@@ -22,14 +22,18 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Event.Date">Date</label>
-                        <input asp-for="Event.Date" class="form-control editor"></input>
+                        <input asp-for="Event.Date" class="form-control editor">
                         <span class="text-danger" asp-validation-for="Event.Date"></span>
                     </div>
-                    <h2>Details</h2>
                     <div class="form-group">
                         <label asp-for="Event.Time">Time</label>
-                        <input asp-for="Event.Time" class="form-control editor"></input>
+                        <input asp-for="Event.Time" class="form-control editor">
                         <span class="text-danger" asp-validation-for="Event.Time"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Event.City">City</label>
+                        <input asp-for="Event.City" class="form-control editor">
+                        <span class="text-danger" asp-validation-for="Event.City"></span>
                     </div>
                     <h3>Details</h3>
                     <div class="form-group">
@@ -39,7 +43,7 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="EventDetails.Venue">Venue</label>
-                        <input asp-for="EventDetails.Venue" class="form-control editor"></input>
+                        <input asp-for="EventDetails.Venue" class="form-control editor">
                         <span class="text-danger" asp-validation-for="EventDetails.Venue"></span>
                     </div>
 

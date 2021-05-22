@@ -1,7 +1,6 @@
-﻿
+﻿$(document).ready(function () {
 
-$(document).ready(function () {
-
+    //****************Subscribe starts**************//
     let subInput;
     function Subscribe(Page) {
         $(`#${Page}-subscribe`).click(function () {
@@ -27,28 +26,63 @@ $(document).ready(function () {
     Subscribe("Blog")
     Subscribe("Contact")
 
+    //****************Subscribe ends**************//
 
 
-
+    //****************Search starts**************//
     let inputVal;
-    $('#search').keyup(function () {
-       // $('#result').html('');
-        inputVal = $(this).val().toLowerCase();
-        
-        $.ajax({
-            type: "POST",
-            url: "/Courses?Search=" + inputVal,
-            
-            //data: {
-            //    "Search": inputVal
-
-            //},
-            data: {},
-            success: function (res) {
-                console.log(res)
+    let newProducts ;
+    let oldProducts;
+        function Search(Page) {
+           
+        $(`#${Page}-search-input`).keyup(function () {
+            oldProducts = $(`#Old-${Page}s`);
+            newProducts = $(`#New-${Page}s`);
+            inputVal = $(this).val().toLowerCase();
+            oldProducts.css("display", "none")
+            newProducts.empty();
+            if ($(this).val().length > 0) {
+                $.ajax({
+                    type: "POST",
+                    url: `/Home/Search`,
+                    data: {
+                        "name": inputVal,
+                        "page": Page,
+                    },
+                    success: function (res) {
+                        oldProducts.css("display", "none")
+                        newProducts.append(res)
+                    }
+                });
             }
-        });
+            else {
+                oldProducts.css("display", "block")
+            }
 
+        })
+    }
+    Search("Course")
+    Search("Event")
+    Search("Blog")
+    Search("Teacher")
+    //****************Search ends**************//
+
+    //****************GlobalSearch starts**************//
+
+    let gInput;
+    $('#global-input').keyup(function () {
+        gInput = $(this).val().trim();
+        if (gInput.length > 0) {
+            $.ajax({
+                url: `/Home/GlobalSearch/`,
+                data: {
+                    "search": gInput
+                },
+                type: "POST",
+                success: function (res) {
+                    $('#globals-list').append(res);
+                }
+            });
+        }
     })
-
 });

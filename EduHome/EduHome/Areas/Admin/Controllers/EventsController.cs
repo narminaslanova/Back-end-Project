@@ -66,8 +66,10 @@ namespace EduHome.Areas.Admin.Controllers
             eventVM.Event.ImageURL = await eventVM.Event.Photo.SaveFileAsync(_env.WebRootPath, filepath);
             
             List<SpeakerEvent> speakerEvents = new List<SpeakerEvent>();
+           
             foreach (int item in eventVM.Speaker)
             {
+               
                 speakerEvents.Add(new SpeakerEvent
                 {
                     EventId = eventVM.Event.Id,
@@ -79,7 +81,7 @@ namespace EduHome.Areas.Admin.Controllers
 
             eventVM.Event.SpeakerEvents = speakerEvents;
             eventVM.Event.EventDetails = eventVM.EventDetails;
-            eventVM.Event.City = "gfgf";
+           // eventVM.Event.City = "gfgf";
 
            await _context.Events.AddAsync(eventVM.Event);
            await _context.EventDetails.AddAsync(eventVM.EventDetails);

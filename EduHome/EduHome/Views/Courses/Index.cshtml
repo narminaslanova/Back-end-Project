@@ -28,16 +28,17 @@
                     <h3>search courses</h3>
                 </div>
                 <div class="course-form">
-                    <form action="#">
-                        <input type="search" id="search" placeholder="Search..." name="Search" />
-                        <button type="submit">search</button>
+                    <form id="Course-search-form">
+                        <input type="search" id="Course-search-input" placeholder="Search..." name="Search" />
                     </form>
                     <ul class="list-group" id="result"></ul>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="Old-Courses">
             @await Component.InvokeAsync("Courses", 9)
+        </div>
+        <div class="row " id="New-Courses">
         </div>
     </div>
 </div>

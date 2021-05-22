@@ -31,10 +31,10 @@ namespace EduHome.Areas.Admin.Controllers
             ViewBag.Page = page;
             if (page == null)
             {
-                List<Blog> blogs = _context.Blogs.Where(b => b.IsDeleted == false).Include(b => b.BlogDetails).Take(3).ToList();
+                List<Blog> blogs = _context.Blogs.Where(b => b.IsDeleted == false).Include(b => b.BlogDetails).OrderByDescending(e => e.Id).Take(3).ToList();
                 return View(blogs);
             }
-            return View(_context.Blogs.Where(b => b.IsDeleted == false).Include(b => b.BlogDetails).Skip(((int)page - 1) * 3).Take(3).ToList());
+            return View(_context.Blogs.Where(b => b.IsDeleted == false).Include(b => b.BlogDetails).OrderByDescending(e => e.Id).Skip(((int)page - 1) * 3).Take(3).ToList());
             
         }
 

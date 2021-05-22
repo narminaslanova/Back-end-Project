@@ -31,12 +31,13 @@ namespace EduHome.Controllers
 
         }
        
-        public IActionResult Search(string name)
-        {
-            List<Courses> courses = _context.Courses.Where(c=>c.Name==name).ToList();
+        //public IActionResult Search(string name)
+        //{
+        //    List<Courses> courses = _context.Courses.Where(c=>c.Name==name).ToList();
 
-            return Json(courses);
-        }
+
+        //    return Content("Ok");
+        //}
 
     }
 }

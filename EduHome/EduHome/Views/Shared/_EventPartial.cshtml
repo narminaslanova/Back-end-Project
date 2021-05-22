@@ -1,0 +1,29 @@
+﻿@model List<Event>
+
+@foreach (Event ev in Model)
+{
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="single-event mb-60">
+            <div class="event-img">
+                <a asp-controller="Event" asp-action="Details" asp-route-id="@ev.Id">
+                    <img style="width: 370px !important; height: 250px !important; object-fit:cover" src="img/event/@ev.ImageURL" alt="event">
+                    <div class="course-hover">
+                        <i class="fa fa-link"></i>
+                    </div>
+                </a>
+                <div class="event-date">
+                    <h3>@Html.Raw(ev.Date)</h3>
+                </div>
+            </div>
+            <div class="event-content text-left">
+                <h4><a asp-controller="Event" asp-action="Details" asp-route-id="@ev.Id">@ev.Title</a></h4>
+                <ul>
+                    <li><span>time:</span>@ev.Time</li>
+                </ul>
+                <div class="event-content-right">
+                    <a class="default-btn" asp-controller="Event" asp-action="Details" asp-route-id="@ev.Id">join now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

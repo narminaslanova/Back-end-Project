@@ -353,3 +353,7 @@ C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\R
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\CoursesforModerators\Update.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Account\EmailVerification.cshtml.g.cs
 C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Account\VerifyEmail.cshtml.g.cs
+C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_CoursePartial.cshtml.g.cs
+C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_EventPartial.cshtml.g.cs
+C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_BlogPartial.cshtml.g.cs
+C:\Users\acer\Desktop\Back-end-Project\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_TeacherPartial.cshtml.g.cs

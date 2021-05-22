@@ -31,14 +31,13 @@
                     <h3>search event</h3>
                 </div>
                 <div class="course-form">
-                    <form id="search" action="#">
-                        <input type="search" placeholder="Search..." name="search" />
-                        <button type="submit">search</button>
+                    <form id="Event-search-form">
+                        <input type="search" placeholder="Search..." name="Search" id="Event-search-input" />
                     </form>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="Old-Events">
             @foreach (Event ev in Model)
             {
                 <div class="col-md-4 col-sm-6 col-xs-12">
@@ -51,7 +50,7 @@
                                 </div>
                             </a>
                             <div class="event-date">
-                                <h3>@Html.Raw(ev.Date)</h3>
+                                <h3>@ev.Date.ToShortDateString()</h3>
                             </div>
                         </div>
                         <div class="event-content text-left">
@@ -67,6 +66,10 @@
                     </div>
                 </div>
             }
+
+        </div>
+        <div class="row" id="New-Events">
+       
 
         </div>
     </div>

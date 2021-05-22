@@ -31,15 +31,17 @@
                     <h3>search blog</h3>
                 </div>
                 <div class="course-form">
-                    <form id="search" action="#">
-                        <input type="search" placeholder="Search..." name="search" />
+                    <form id="Blog-search-form" action="#">
+                        <input type="search"id="Blog-search-input" placeholder="Search..." name="Search" />
                         <button type="submit">search</button>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="Old-Blogs">
             @await Component.InvokeAsync("Blog", 9)
+        </div>
+        <div class="row" id="New-Blogs">
         </div>
         <div class="row">
             <div class="col-xs-12">
