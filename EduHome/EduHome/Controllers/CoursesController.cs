@@ -30,14 +30,5 @@ namespace EduHome.Controllers
             return View(course);
 
         }
-       
-        //public IActionResult Search(string name)
-        //{
-        //    List<Courses> courses = _context.Courses.Where(c=>c.Name==name).ToList();
-
-
-        //    return Content("Ok");
-        //}
-
     }
 }

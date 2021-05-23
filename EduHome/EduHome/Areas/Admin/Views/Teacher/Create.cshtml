@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Teacher.Profession">Profession</label>
-                        <textarea asp-for="Teacher.Profession"  class="form-control editor"></textarea>
+                        <input asp-for="Teacher.Profession"  class="form-control editor" />
                         <span class="text-danger" asp-validation-for="Teacher.Profession"></span>
                     </div>
                     <h2>Details</h2>
@@ -33,66 +33,66 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="TeacherDetails.Degree">Degree</label>
-                        <textarea asp-for="TeacherDetails.Degree" class="form-control editor"></textarea>
+                        <input asp-for="TeacherDetails.Degree" class="form-control editor">
                         <span class="text-danger" asp-validation-for="TeacherDetails.Degree"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="TeacherDetails.Experience">Experience</label>
-                        <textarea asp-for="TeacherDetails.Experience" class="form-control editor"></textarea>
+                        <input asp-for="TeacherDetails.Experience" class="form-control editor">
                         <span class="text-danger" asp-validation-for="TeacherDetails.Experience"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="TeacherDetails.Hobbies">Hobbies</label>
-                        <textarea asp-for="TeacherDetails.Hobbies" class="form-control editor"></textarea>
+                        <input asp-for="TeacherDetails.Hobbies" class="form-control editor">
                         <span class="text-danger" asp-validation-for="TeacherDetails.Hobbies"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="TeacherDetails.Faculty">Faculty</label>
-                        <textarea asp-for="TeacherDetails.Faculty" class="form-control editor"></textarea>
+                        <input asp-for="TeacherDetails.Faculty" class="form-control editor">
                         <span class="text-danger" asp-validation-for="TeacherDetails.Faculty"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="TeacherDetails.Mail">Mail</label>
-                        <textarea asp-for="TeacherDetails.Mail" class="form-control editor"></textarea>
+                        <input asp-for="TeacherDetails.Mail" class="form-control editor">
                         <span class="text-danger" asp-validation-for="TeacherDetails.Mail"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="TeacherDetails.PhoneNumber">Phone Number</label>
-                        <textarea asp-for="TeacherDetails.PhoneNumber" class="form-control editor"></textarea>
+                        <input asp-for="TeacherDetails.PhoneNumber" class="form-control editor">
                         <span class="text-danger" asp-validation-for="TeacherDetails.PhoneNumber"></span>
                     </div>
                     <h2>Skills</h2>
                     <div class="form-group">
                         <label asp-for="Skills.Language">Language</label>
-                        <textarea asp-for="Skills.Language" class="form-control editor"></textarea>
+                        <input asp-for="Skills.Language" class="form-control editor">
                         <span class="text-danger" asp-validation-for="Skills.Language"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Skills.TeamLeader">Team Leader</label>
-                        <textarea asp-for="Skills.TeamLeader" class="form-control editor"></textarea>
+                        <input asp-for="Skills.TeamLeader" class="form-control editor">
                         <span class="text-danger" asp-validation-for="Skills.TeamLeader"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Skills.Development">Development</label>
-                        <textarea asp-for="Skills.Development" class="form-control editor"></textarea>
+                        <input asp-for="Skills.Development" class="form-control editor">
                         <span class="text-danger" asp-validation-for="Skills.Development"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Skills.Design">Design</label>
-                        <textarea asp-for="Skills.Design" class="form-control editor"></textarea>
+                        <input asp-for="Skills.Design" class="form-control editor">
                         <span class="text-danger" asp-validation-for="Skills.Design"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Skills.Innovation">Innovation</label>
-                        <textarea asp-for="Skills.Innovation" class="form-control editor"></textarea>
+                        <input asp-for="Skills.Innovation" class="form-control editor">
                         <span class="text-danger" asp-validation-for="Skills.Innovation"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Skills.Communication">Communication</label>
-                        <textarea asp-for="Skills.Communication" class="form-control editor"></textarea>
+                        <input asp-for="Skills.Communication" class="form-control editor">
                         <span class="text-danger" asp-validation-for="Skills.Communication"></span>
                     </div>
-                    <div class="form-group" id="socials">
+                    @*<div class="form-group" id="socials">
                         <label>Select Social</label>
                         <select asp-for="SocialMedia" class="form-control" multiple name="Socials">
                             @foreach (SocialMediaTable item in ViewBag.SocialMedia)
@@ -100,7 +100,7 @@
                                 <option value="@item.Id">@item.Name</option>
                             }
                         </select>
-                    </div>
+                    </div>*@
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <a class="btn btn-light" asp-action="Index">Cancel</a>
                 </form>

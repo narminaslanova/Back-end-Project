@@ -73,7 +73,6 @@
    // $('#global-input').val("");
     $('#global-input').keyup(function () {
         gInput = $(this).val().trim();
-        $('#globals-list #global-list').remove();
         $('#globals-list').empty();
         if (gInput.length > 0) {
             $.ajax({

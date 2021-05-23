@@ -49,8 +49,10 @@ namespace EduHome.Areas.Admin.Controllers
 
         public async Task<IActionResult> Create([Bind("Teacher,TeacherDetails,Skills,SocialMedias")] TeacherVM teacherVM)
         {
-            
-            if (teacherVM.Teacher == null || teacherVM.TeacherDetails == null || teacherVM.Skills == null || teacherVM.SocialMedia == null) return NotFound();
+            //teacherVM.SocialMedia == null
+
+
+            if (teacherVM.Teacher == null || teacherVM.TeacherDetails == null || teacherVM.Skills == null) return NotFound();
             Teacher teacher = teacherVM.Teacher;
             TeacherDetails teacherDetails = teacherVM.TeacherDetails;
             Skills skills = teacherVM.Skills;
@@ -76,15 +78,15 @@ namespace EduHome.Areas.Admin.Controllers
 
             List<SocialMedia> socialmedias = new List<SocialMedia>();
             List<SocialMediaTable> socials = _context.SocialMediaTable.ToList();
-            foreach (var item in teacherVM.SocialMedia)
-            {
-                SocialMediaTable social = socials.FirstOrDefault(n => n.Id == item);
-                socials.Add(new SocialMediaTable
-                {
-                    Icon = social.Icon,
+            //foreach (var item in teacherVM.SocialMedia)
+            //{
+            //    SocialMediaTable social = socials.FirstOrDefault(n => n.Id == item);
+            //    socials.Add(new SocialMediaTable
+            //    {
+            //        Icon = social.Icon,
 
-                });
-            }
+            //    });
+            //}
             teacherVM.Teacher.SocialMedias = socialmedias;
             _context.Teachers.Add(teacher);
             _context.TeacherDetails.Add(teacherDetails);
@@ -124,8 +126,9 @@ namespace EduHome.Areas.Admin.Controllers
             }
             string filepath = Path.Combine("img", "teacher");
             teacherVM.Teacher.ImageURL = await teacherVM.Teacher.Photo.SaveFileAsync(_env.WebRootPath, filepath);
-            //teacherVM.Teacher.Id = id;
-            //teacherVM.TeacherDetails.TeacherId = id;
+            teacherVM.Teacher.Id = id;
+            teacherVM.TeacherDetails.TeacherId = id;
+            teacherVM.Skills.TeacherDetailsId = teacherVM.TeacherDetails.Id;
             
             _context.Update(teacherVM.Teacher);
             _context.Update(teacherVM.TeacherDetails);
